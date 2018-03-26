@@ -22,7 +22,7 @@
         AND
         password = #{password,jdbcType=VARCHAR}
         AND
-        info = #{#info,jdbcType=INTEGER}
+        info = #{info,jdbcType=INTEGER}
     </select>
 
     <insert id="insert" parameterType="com.xynu.model.User" >

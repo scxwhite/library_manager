@@ -10,9 +10,8 @@ import org.springframework.web.servlet.ModelAndView;
  * @author Administrator
  */
 @Controller
-@RequestMapping("/index/")
+@RequestMapping("/page/")
 public class IndexController {
-
 
     /**
      * 页面跳转控制

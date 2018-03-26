@@ -20,7 +20,7 @@ public class WebApplication {
 
 
 	@RequestMapping("/")
-	public String toLogin() {
-		return "redirect:index/login";
+	public String login() {
+		return "redirect:page/login";
 	}
 }
