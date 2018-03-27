@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xynu.mapper.BookMapper">
+    <resultMap id="BaseResultMap" type="com.xynu.entity.Book">
+        <id column="book_id" property="bookId" jdbcType="VARCHAR"/>
+        <result column="type_id" property="typeId" />
+        <result column="title" property="title" />
+        <result column="info" property="publish"/>
+        <result column="publish_year" property="publishYear"/>
+        <result column="author" property="author"/>
+        <result column="price" property="price"/>
+        <result column="number" property="number"/>
+        <result column="stocks" property="stocks"/>
+    </resultMap>
+    <sql id="base_column_list">
+        book_id,type_id,title,info, publish_year, author,price,number,stocks
+    </sql>
+    <sql id="base_table" >
+        book
+    </sql>
+
+    <select id="selectAllBook" resultMap="BaseResultMap">
+        select
+        <include refid="base_column_list"/>
+        FROM
+        <include refid="base_table"/>
+    </select>
+</mapper>

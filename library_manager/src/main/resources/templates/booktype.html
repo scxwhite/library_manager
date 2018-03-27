@@ -51,8 +51,7 @@
 </div>
 <!-- /navbar -->
 <div class="subnavbar">
-  <div th:include="navbar.html" />
-  <!-- /subnavbar-inner --> 
+  <div th:include="navbar.html"/>
 </div>
 <div class="main">
   <div class="main-inner">
@@ -95,8 +94,10 @@
 <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/base.js'}"></script>
 <script >
   $(function () {
-      $('#userManager').addClass("active");
+      $('#bookType').addClass("active");
+      $('#bookAll').addClass("active");
   });
+
   function isValidFormatter(val) {
       if (val == 0) {
           return "否";

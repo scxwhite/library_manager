@@ -1,10 +1,13 @@
 package com.xynu.service.impl;
 
 import com.xynu.mapper.UserMapper;
-import com.xynu.model.User;
+import com.xynu.entity.User;
 import com.xynu.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -28,5 +31,14 @@ public class UserServiceImpl implements UserService {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public List<User> findAllUser () {
+        List<User> users = userMapper.selectAllUser();
+        if (users == null) {
+            return new ArrayList<>();
+        }
+        return users;
     }
 }

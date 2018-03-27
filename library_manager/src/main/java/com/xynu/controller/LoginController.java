@@ -1,6 +1,6 @@
 package com.xynu.controller;
 
-import com.xynu.model.User;
+import com.xynu.entity.User;
 import com.xynu.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

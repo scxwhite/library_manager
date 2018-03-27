@@ -1,6 +1,8 @@
 package com.xynu.service;
 
-import com.xynu.model.User;
+import com.xynu.entity.User;
+
+import java.util.List;
 
 
 /**
@@ -9,4 +11,6 @@ import com.xynu.model.User;
 public interface UserService {
 
     boolean login(User user);
+
+    List<User> findAllUser ();
 }

@@ -629,7 +629,7 @@
   })
 
 }( window.jQuery );/* =========================================================
- * bootstrap-model.js v2.0.2
+ * bootstrap-entity.js v2.0.2
  * http://twitter.github.com/bootstrap/javascript.html#modals
  * =========================================================
  * Copyright 2012 Twitter, Inc.
@@ -658,7 +658,7 @@
   var Modal = function ( content, options ) {
     this.options = options
     this.$element = $(content)
-      .delegate('[data-dismiss="model"]', 'click.dismiss.modal', $.proxy(this.hide, this))
+      .delegate('[data-dismiss="entity"]', 'click.dismiss.modal', $.proxy(this.hide, this))
   }
 
   Modal.prototype = {
@@ -756,7 +756,7 @@
     if (this.isShown && this.options.backdrop) {
       var doAnimate = $.support.transition && animate
 
-      this.$backdrop = $('<div class="model-backdrop ' + animate + '" />')
+      this.$backdrop = $('<div class="entity-backdrop ' + animate + '" />')
         .appendTo(document.body)
 
       if (this.options.backdrop != 'static') {
@@ -827,7 +827,7 @@
   * ============== */
 
   $(function () {
-    $('body').on('click.modal.data-api', '[data-toggle="model"]', function ( e ) {
+    $('body').on('click.modal.data-api', '[data-toggle="entity"]', function ( e ) {
       var $this = $(this), href
         , $target = $($this.attr('data-target') || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')) //strip for ie7
         , option = $target.data('modal') ? 'toggle' : $.extend({}, $target.data(), $this.data())

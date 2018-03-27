@@ -1,4 +1,4 @@
-package com.xynu.model;
+package com.xynu.entity;
 
 import lombok.*;
 
@@ -12,6 +12,7 @@ import lombok.*;
 @AllArgsConstructor
 public class User {
 
+    private Integer id;
     private String username;
     private String password;
     /**
@@ -19,5 +20,7 @@ public class User {
      * 1    ：教师
      */
     private Integer info;
+
+    private Integer isValid;
 
 }
