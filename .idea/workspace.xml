@@ -2,16 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a40df55-e4e8-493c-b9f5-275f2cf23966" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library_manager/src/main/resources/static/js/bootstrap-table-zh-CN.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library_manager/src/main/resources/static/js/bootstrap-table.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library_manager/src/main/resources/templates/usermanager.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library_manager/src/main/resources/static/js/setting.js" afterPath="$PROJECT_DIR$/library_manager/src/main/resources/static/js/setting.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library_manager/src/main/resources/templates/charts.html" afterPath="$PROJECT_DIR$/library_manager/src/main/resources/templates/charts.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library_manager/src/main/resources/templates/faq.html" afterPath="$PROJECT_DIR$/library_manager/src/main/resources/templates/faq.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library_manager/src/main/resources/templates/guidely.html" afterPath="$PROJECT_DIR$/library_manager/src/main/resources/templates/guidely.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library_manager/src/main/resources/templates/icons.html" afterPath="$PROJECT_DIR$/library_manager/src/main/resources/templates/icons.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library_manager/src/main/resources/templates/index.html" afterPath="$PROJECT_DIR$/library_manager/src/main/resources/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library_manager/src/main/resources/templates/pricing.html" afterPath="$PROJECT_DIR$/library_manager/src/main/resources/templates/pricing.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library_manager/src/main/resources/templates/reports.html" afterPath="$PROJECT_DIR$/library_manager/src/main/resources/templates/reports.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library_manager/src/main/resources/templates/shortcodes.html" afterPath="$PROJECT_DIR$/library_manager/src/main/resources/templates/shortcodes.html" />
     </list>
     <ignored path="$PROJECT_DIR$/web/target/" />
     <ignored path="$PROJECT_DIR$/library_manager/target/" />
@@ -35,11 +30,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="setting.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="setting.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/static/js/setting.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="650">
-              <caret line="33" column="40" lean-forward="true" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
+            <state relative-caret-position="298">
+              <caret line="17" column="3" lean-forward="true" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -48,8 +43,8 @@
       <file leaf-file-name="pricing.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/templates/pricing.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="64" column="63" lean-forward="false" selection-start-line="64" selection-start-column="59" selection-end-line="64" selection-end-column="63" />
+            <state relative-caret-position="819">
+              <caret line="68" column="12" lean-forward="true" selection-start-line="68" selection-start-column="12" selection-end-line="68" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -85,41 +80,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="error.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/templates/error.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="77" column="68" lean-forward="false" selection-start-line="77" selection-start-column="68" selection-end-line="77" selection-end-column="68" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="faq.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/templates/faq.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="64" column="25" lean-forward="true" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="guidely.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/templates/guidely.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="64" column="25" lean-forward="false" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="icons.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/templates/icons.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="64" column="25" lean-forward="false" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
+            <state relative-caret-position="291">
+              <caret line="60" column="50" lean-forward="true" selection-start-line="60" selection-start-column="50" selection-end-line="60" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/templates/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="325">
+              <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="83" selection-end-column="27" />
+              <folding>
+                <element signature="n#script#7;n#body#0;n#html#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="usermanager.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/templates/usermanager.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="94">
+              <caret line="81" column="40" lean-forward="true" selection-start-line="81" selection-start-column="40" selection-end-line="81" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bootstrap-table-zh-CN.min.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/static/js/bootstrap-table-zh-CN.min.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="88">
+              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -145,7 +142,6 @@
       <find>avatar</find>
       <find>Bootstrap Admin Template</find>
       <find>brand</find>
-      <find>icon-user</find>
       <find>DASH</find>
       <find>mainn</find>
       <find>main</find>
@@ -155,6 +151,9 @@
       <find>profile</find>
       <find>prof</find>
       <find>exit</find>
+      <find>user</find>
+      <find>icon-user</find>
+      <find>stats</find>
     </findStrings>
     <replaceStrings>
       <replace>radio</replace>
@@ -196,7 +195,6 @@
         <option value="$PROJECT_DIR$/library_manager/src/main/resources/templates/login.html" />
         <option value="$PROJECT_DIR$/library_manager/src/main/resources/templates/signup.html" />
         <option value="$PROJECT_DIR$/library_manager/src/main/resources/templates/error.html" />
-        <option value="$PROJECT_DIR$/library_manager/src/main/resources/templates/index.html" />
         <option value="$PROJECT_DIR$/library_manager/src/main/resources/templates/charts.html" />
         <option value="$PROJECT_DIR$/library_manager/src/main/resources/templates/faq.html" />
         <option value="$PROJECT_DIR$/library_manager/src/main/resources/templates/guidely.html" />
@@ -205,6 +203,8 @@
         <option value="$PROJECT_DIR$/library_manager/src/main/resources/templates/reports.html" />
         <option value="$PROJECT_DIR$/library_manager/src/main/resources/templates/shortcodes.html" />
         <option value="$PROJECT_DIR$/library_manager/src/main/resources/static/js/setting.js" />
+        <option value="$PROJECT_DIR$/library_manager/src/main/resources/templates/index.html" />
+        <option value="$PROJECT_DIR$/library_manager/src/main/resources/templates/usermanager.html" />
       </list>
     </option>
   </component>
@@ -335,6 +335,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="library_manager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="library_manager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -420,15 +446,15 @@
     <property name="RequestMappingsPanelOrder2" value="2" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\project_git\library_manager\web\src\main\resources\static\css" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\myHome\library_manager\library_manager\src\main\resources\static\js" />
+      <recent name="D:\myHome\library_manager\library_manager\src\main\resources\templates" />
       <recent name="E:\project_git\library_manager\library_manager\src\main\resources\static" />
       <recent name="E:\project_git\library_manager\library_manager\src\main\resources" />
       <recent name="E:\project_git\library_manager\web\src\main\resources\static" />
-      <recent name="E:\project_git\library_manager\web\src\main\resources\static\css" />
-      <recent name="E:\project_git\library_manager\web\src\main\resources\static\js" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\project_git\library_manager\web\src\main\resources\static\css" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -939,15 +965,24 @@
       <workItem from="1521939767565" duration="9790000" />
       <workItem from="1522070399664" duration="595000" />
       <workItem from="1522071040536" duration="4105000" />
-      <workItem from="1522147737317" duration="4930000" />
+      <workItem from="1522147737317" duration="6163000" />
     </task>
+    <task id="LOCAL-00001" summary="退出操作">
+      <created>1522152684569</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1522152684569</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19420000" />
+    <option name="totallyTimeSpent" value="20653000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -969,7 +1004,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4654018" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.328125" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.328125" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16897655" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -990,6 +1025,10 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="退出操作" />
+    <option name="LAST_COMMIT_MESSAGE" value="退出操作" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <option name="time" value="11" />
@@ -1001,34 +1040,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library_manager/src/main/java/com/xynu/controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="32" column="42" lean-forward="true" selection-start-line="32" selection-start-column="42" selection-end-line="32" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library_manager/src/main/java/com/xynu/controller/IndexController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="23" column="28" lean-forward="true" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/library_manager/src/main/java/com/xynu/model/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
@@ -1315,16 +1326,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="39" column="17" lean-forward="true" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
-          <folding>
-            <element signature="n#script#7;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/templates/charts.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="237">
@@ -1357,14 +1358,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/templates/icons.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="64" column="25" lean-forward="false" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/templates/signup.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="237">
@@ -1389,14 +1382,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/templates/pricing.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="64" column="63" lean-forward="false" selection-start-line="64" selection-start-column="59" selection-end-line="64" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
@@ -1407,8 +1392,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/static/js/setting.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="650">
-          <caret line="33" column="40" lean-forward="true" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
+        <state relative-caret-position="298">
+          <caret line="17" column="3" lean-forward="true" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/templates/pricing.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="819">
+          <caret line="68" column="12" lean-forward="true" selection-start-line="68" selection-start-column="12" selection-end-line="68" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/templates/icons.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="60" column="50" lean-forward="true" selection-start-line="60" selection-start-column="50" selection-end-line="60" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="83" selection-end-column="27" />
+          <folding>
+            <element signature="n#script#7;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/static/js/bootstrap-table.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/static/js/bootstrap-table-zh-CN.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/templates/usermanager.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="81" column="40" lean-forward="true" selection-start-line="81" selection-start-column="40" selection-end-line="81" selection-end-column="40" />
           <folding />
         </state>
       </provider>
