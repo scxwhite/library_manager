@@ -1,6 +1,5 @@
 $(function () {
     var info = getCookie("info");
-    console.log(info)
     if (info == 0) {
         $('title').text("图书管理系统-学生端");
         $('.brand').text("图书管理系统-学生端");
@@ -10,6 +9,11 @@ $(function () {
         $('.brand').text("图书管理系统-教师端");
     }
     $('#username').text(getCookie("username"));
+    $('#exit').on('click', function () {
+        setCookie("info", 1, -1)
+        setCookie("username", 1, -1)
+        location.href = "/page/login";
+    })
 
 });
 function getCookie(name)
@@ -21,4 +25,14 @@ function getCookie(name)
     else {
         return null;
     }
+}
+function setCookie(name, value, iDay){
+
+
+    var oDate=new Date();
+
+    oDate.setDate(oDate.getDate()+iDay);
+
+    document.cookie=name+'='+value+';expires='+oDate;
+
 }
