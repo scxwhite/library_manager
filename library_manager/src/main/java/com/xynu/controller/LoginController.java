@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 /**
  * @author Administrator
@@ -29,10 +27,14 @@ public class LoginController {
         boolean login = userService.login(user);
         //如果登录成功
         if (login) {
-            Cookie cookie = new Cookie("username", user.getUsername());
-            cookie.setMaxAge(3 * 60 * 60);
-            cookie.setPath("/");
-            response.addCookie(cookie);
+            Cookie usernameCookie = new Cookie("username", user.getUsername());
+            Cookie infoCookie = new Cookie("info", String.valueOf(user.getInfo()));
+            usernameCookie.setMaxAge(3 * 60 * 60);
+            infoCookie.setMaxAge(3 * 60 * 60);
+            usernameCookie.setPath("/");
+            infoCookie.setPath("/");
+            response.addCookie(infoCookie);
+            response.addCookie(usernameCookie);
             return true;
         } else {
             return false;

@@ -2,7 +2,8 @@
 <html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
-<title>Dashboard - Bootstrap Admin Template</title>
+
+<title>图书管理系统-学生端</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link th:href="@{${#httpServletRequest.getContextPath()} + '/css/bootstrap.min.css'}" rel="stylesheet">
@@ -21,7 +22,7 @@
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
-                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </a><a class="brand" href="index.html">Bootstrap Admin Template </a>
+                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </a><a class="brand" href="index.html"></a>
       <div class="nav-collapse">
         <ul class="nav pull-right">
           <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
@@ -31,11 +32,11 @@
               <li><a href="javascript:;">Help</a></li>
             </ul>
           </li>
-          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                            class="icon-user"></i> by EGrappler <b class="caret"></b></a>
+          <li class="dropdown"><a href="#" id="username" class="dropdown-toggle" data-toggle="dropdown"><i
+                            class="icon-user"></i> username <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="javascript:;">Profile</a></li>
-              <li><a href="javascript:;">Logout</a></li>
+              <li><a href="javascript:;">个人信息</a></li>
+              <li><a href="javascript:;">退出</a></li>
             </ul>
           </li>
         </ul>
@@ -54,19 +55,19 @@
   <div class="subnavbar-inner">
     <div class="container">
       <ul class="mainnav">
-        <li class="active"><a href="index.html"><i class="icon-dashboard"></i><span>Dashboard</span> </a> </li>
-        <li><a href="reports.html"><i class="icon-list-alt"></i><span>Reports</span> </a> </li>
-        <li><a href="guidely.html"><i class="icon-facetime-video"></i><span>App Tour</span> </a></li>
-        <li><a href="charts.html"><i class="icon-bar-chart"></i><span>Charts</span> </a> </li>
-        <li><a href="shortcodes.html"><i class="icon-code"></i><span>Shortcodes</span> </a> </li>
+        <li class="active"><a th:href="@{/page/index}"><i class="icon-dashboard"></i><span>Dashboard</span> </a> </li>
+        <li><a th:href="@{/page/reports}"><i class="icon-list-alt"></i><span>Reports</span> </a> </li>
+        <li><a th:href="@{/page/guidely}"><i class="icon-facetime-video"></i><span>App Tour</span> </a></li>
+        <li><a th:href="@{/page/charts}"><i class="icon-bar-chart"></i><span>Charts</span> </a> </li>
+        <li><a th:href="@{/page/shortcodes}"><i class="icon-code"></i><span>Shortcodes</span> </a> </li>
         <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-long-arrow-down"></i><span>Drops</span> <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="icons.html">Icons</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="pricing.html">Pricing Plans</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="signup.html">Signup</a></li>
-            <li><a href="error.html">404</a></li>
+            <li><a th:href="@{/page/icons}">Icons</a></li>
+            <li><a th:href="@{/page/faq}">FAQ</a></li>
+            <li><a th:href="@{/page/pricing}">Pricing Plans</a></li>
+            <li><a th:href="@{/page/login}">Login</a></li>
+            <li><a th:href="@{/page/signup}">Signup</a></li>
+            <li><a th:href="@{/page/error}">404</a></li>
           </ul>
         </li>
       </ul>
@@ -399,6 +400,7 @@
 <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/excanvas.min.js'}"></script>
 <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/chart.min.js'}" type="text/javascript"></script>
 <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/bootstrap.js'}"></script>
+<script th:src="@{${#httpServletRequest.getContextPath()} + '/js/setting.js'}"></script>
 <script language="javascript" type="text/javascript" th:src="@{${#httpServletRequest.getContextPath()} + '/js/full-calendar/fullcalendar.min.js'}"></script>
  
 <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/base.js'}"></script>
