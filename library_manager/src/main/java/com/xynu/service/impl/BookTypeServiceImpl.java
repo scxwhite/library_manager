@@ -4,12 +4,14 @@ import com.xynu.entity.BookType;
 import com.xynu.mapper.BookTypeMapper;
 import com.xynu.service.BookTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by wyr on 2018/3/27.
  */
+@Service
 public class BookTypeServiceImpl implements BookTypeService {
 
     @Autowired
@@ -17,7 +19,7 @@ public class BookTypeServiceImpl implements BookTypeService {
 
     @Override
     public List<BookType> findAllBookType () {
-        return null;
+        return bookTypeMapper.selectAllBookType();
     }
 
     @Override

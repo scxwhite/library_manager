@@ -2,7 +2,7 @@ package com.xynu.mapper;
 
 
 import com.xynu.entity.Book;
-import com.xynu.entity.User;
+import com.xynu.model.BookVO;
 
 import java.util.List;
 
@@ -17,4 +17,10 @@ public interface BookMapper {
      * @return List
      */
     List<Book> selectAllBook ();
+
+    Integer updateBook (Book book);
+
+    Integer insertBook (Book book);
+
+    Integer deleteBook (Integer id);
 }

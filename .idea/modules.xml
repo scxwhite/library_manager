@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://D:/myHome/library_manager/library_manager/library_manager.iml" filepath="D:/myHome/library_manager/library_manager/library_manager.iml" />
-      <module fileurl="file://$PROJECT_DIR$/library_manager/web.iml" filepath="$PROJECT_DIR$/library_manager/web.iml" />
       <module fileurl="file://$PROJECT_DIR$/library_manager/web.iml" filepath="$PROJECT_DIR$/library_manager/web.iml" />
     </modules>
   </component>

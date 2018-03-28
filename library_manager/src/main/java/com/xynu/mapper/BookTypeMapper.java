@@ -16,5 +16,5 @@ public interface BookTypeMapper {
      * 查询所有图书
      * @return List
      */
-    List<BookType> selectAllBook ();
+    List<BookType> selectAllBookType ();
 }

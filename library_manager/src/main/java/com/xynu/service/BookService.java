@@ -2,6 +2,7 @@ package com.xynu.service;
 
 
 import com.xynu.entity.Book;
+import com.xynu.model.BookVO;
 
 import java.util.List;
 
@@ -15,4 +16,6 @@ public interface BookService {
     boolean addBook(Book book);
 
     boolean updateBook(Book book);
+
+    boolean delBook (Integer id);
 }
