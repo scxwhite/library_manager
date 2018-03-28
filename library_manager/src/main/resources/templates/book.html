@@ -177,7 +177,7 @@
    */
   function initEvent() {
       $('#addBookBtn').on('click', function () {
-          $('#id').val("");
+          $('#edit-book')[0].reset();
           $('#addBook').modal('show');
       });
       $('#uploadBook').on('click', function () {
@@ -251,7 +251,6 @@
   }
 
   function editBook(bookId) {
-      console.log(JSON.stringify(bookCache[bookId]));
       var bookForm = $('#edit-book');
       bookForm[0].reset();
       formDataLoad('edit-book', bookCache[bookId]);
