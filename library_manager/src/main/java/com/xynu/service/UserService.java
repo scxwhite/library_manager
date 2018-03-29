@@ -13,4 +13,10 @@ public interface UserService {
     boolean login(User user);
 
     List<User> findAllUser ();
+
+    boolean addUser(User user);
+
+    boolean updateUser(User user);
+
+    boolean delUser(Integer id);
 }

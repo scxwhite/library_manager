@@ -21,18 +21,73 @@
 <div th:include="child :: #head"/>
 
 <div th:include="child :: #menu" />
+
 </div>
 <div class="container">
-    <table id="selectTable" data-url="/user/list" class="table"  data-toggle="table" data-search="true" data-pagination="true"  data-checkbox-header="false" data-maintain-selected="true">
+  <div id="toolbar">
+    <div class="btn-group">
+      <button class="btn btn-info btn-md" data-toggle="modal" id="addUserBtn">新增</button>
+    </div>
+  </div>
+    <table id="userTable" data-toolbar="#toolbar" data-show-refresh="true" data-url="/user/list" class="table"  data-toggle="table" data-search="true" data-pagination="true"  data-checkbox-header="false" data-maintain-selected="true">
       <thead >
       <tr>
         <th data-field="username" data-title="学号" ></th>
-        <th data-field="password" data-title="密码" data-sortable="true"></th>
+        <th data-field="password" data-title="密码" data-sortable="true" data-formatter="passFormatter"></th>
         <th data-field="info" data-title="信息" data-formatter ="infoFormatter"></th>
-        <th data-field="isValid" data-title="能否借阅" data-formatter = "isValidFormatter"></th>
+        <th data-field="isValid" data-title="黑名单" data-formatter = "isValidFormatter"></th>
+        <th data-title="操作" data-formatter="operatorFormatter"></th>
       </tr>
       </thead>
     </table>
+</div>
+<div class="modal fade" id="addUser" tabindex="-10" role="dialog"  aria-labelledby="title" aria-hidden="true" style="display:none">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="title">添加用户</h4>
+      </div>
+      <div class="modal-body">
+        <form id="edit-user" action="#">
+          <input id="id" name="id" type="hidden" value="">
+          <div class="control-group ">
+            <label class="control-label" for="username">学号</label>
+            <div class="controls ">
+              <input type="text" class="span3"  id="username" name="username">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="title">密码</label>
+            <div class="controls">
+              <input type="password" class="span3"   name="password">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="title">类型</label>
+            <div class="controls">
+                <select name="info">
+                    <option value="0" >学生</option>
+                    <option value="1" >管理员</option>
+                </select>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="isValid">黑名单</label>
+            <div class="controls">
+              <select name="isValid" id="isValid">
+                <option value="0" >是</option>
+                <option value="1" >否</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="closeModal">取消</button>
+        <button type="submit" class="btn btn-info add-btn" id="uploadUser">提交</button>
+      </div>
+    </div>
+  </div>
 </div>
 <div th:include="child :: #footer" />
 <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/jquery-1.7.2.min.js'}"></script>
@@ -42,14 +97,99 @@
 <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/setting.js'}"></script>
 <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/base.js'}"></script>
 <script >
+  var userCache = {};
   $(function () {
-      $('#userManager').addClass("active");
+      initClass();
+      initEvent();
   });
+  function initClass() {
+      $('#userManager').addClass("active");
+  }
+
+  function initEvent() {
+      $('#addUserBtn').on('click', function () {
+          $('#edit-user')[0].reset();
+          $('#addUser').modal('show');
+      });
+
+      $('#uploadUser').on('click', function () {
+          var id = $('#id').val();
+          var url, msg;
+          //新增操作
+          if (id == "" || id == null || id == undefined) {
+              url = "/user/addUser";
+              msg = "添加";
+          } else {//更新操作
+              url = "/user/updateUser";
+              msg = "更新";
+          }
+
+          $.ajax({
+              url: url,
+              type: "post",
+              data: $('#edit-user').serialize(),
+              success: function (data) {
+                  if (data == true) {
+                      alert(msg + "成功");
+                      $('#addUser').modal('hide');
+                      $('#userTable').bootstrapTable('refresh');
+                  } else {
+                      alert(msg + "失败");
+                  }
+              }
+          });
+      })
+  }
+
+  function passFormatter(val) {
+      return "********";
+  }
+
+  function operatorFormatter(val, row) {
+      userCache[row.id] = row;
+      return '<a href="javascript:editUser(' + row.id + ')"><i class="icon-edit" ></i></a>&nbsp;&nbsp;' +
+          '<a href="javascript:delUser(' + row.id + ')"><i class="icon-remove" ></i></a>';
+  }
+
+  function editUser(id) {
+       $('#edit-user')[0].reset();
+      formDataLoad('edit-user', userCache[id]);
+      $('#addUser').modal('show');
+  }
+
+  function delUser(id) {
+      if (!confirm("确定删除" + userCache[id].username + " ?")) {
+          return false;
+      }
+      $.ajax({
+          url: "/user/delUser",
+          data: {
+              id: id
+          },
+          type: "get",
+          success: function (data) {
+              if (data == true) {
+                  alert("删除成功");
+                  $('#userTable').bootstrapTable('refresh');
+              } else {
+                  alert("删除失败");
+              }
+          }
+      })
+  }
+  function infoFormatter(val) {
+      if (val == 0) {
+          return "学生";
+      } else if (val == 1) {
+          return "管理员";
+      }
+      return val;
+  }
   function isValidFormatter(val) {
       if (val == 0) {
-          return "否";
+          return '<label class= "label label-warn">是</label>';
       } else {
-          return "能";
+          return '<label class= "label label-success">否</label>';
       }
   }
 </script>

@@ -22,4 +22,25 @@ public interface UserMapper {
      * @return Users
      */
     List<User> selectAllUser ();
+
+    /**
+     * 根据ID删除用户
+     * @param id    id
+     * @return  Integer
+     */
+    Integer deleteUser(Integer id);
+
+    /**
+     * 根据ID更新用户
+     * @param user  用户
+     * @return  Integer
+     */
+    Integer updateUser(User user);
+
+    /**
+     * 插入用户
+     * @param user  用户
+     * @return Integer
+     */
+    Integer insertUser(User user);
 }

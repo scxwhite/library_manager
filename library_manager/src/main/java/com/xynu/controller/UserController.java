@@ -29,4 +29,23 @@ public class UserController {
     public List<User> getUserList() {
         return userService.findAllUser();
     }
+
+
+    @RequestMapping("/addUser")
+    @ResponseBody
+    public boolean addUser(User user) {
+        return userService.addUser(user);
+    }
+
+    @RequestMapping("/updateUser")
+    @ResponseBody
+    public boolean updateUser(User user) {
+        return userService.updateUser(user);
+    }
+
+    @RequestMapping("/delUser")
+    @ResponseBody
+    public boolean delUser(Integer id) {
+        return userService.delUser(id);
+    }
 }

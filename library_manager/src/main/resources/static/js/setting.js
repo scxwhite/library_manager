@@ -60,7 +60,6 @@ function formDataLoad(domId, obj) {
                     } else {
                         $(dom).val(obj[property]);
                     }
-                    console.log(obj[property])
                 });
             }
         }

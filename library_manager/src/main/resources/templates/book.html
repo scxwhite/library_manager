@@ -69,7 +69,6 @@
               <label class="control-label" for="typeId">类别</label>
               <div class="controls">
                 <select id="typeId" name="typeId" >
-
                 </select>
               </div>
             </div>
@@ -218,8 +217,7 @@
   }
 
   function editBook(bookId) {
-      var bookForm = $('#edit-book');
-      bookForm[0].reset();
+      $('#edit-book')[0].reset();
       formDataLoad('edit-book', bookCache[bookId]);
       $('#addBook').modal('show');
   }

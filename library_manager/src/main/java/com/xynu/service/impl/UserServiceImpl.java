@@ -41,4 +41,31 @@ public class UserServiceImpl implements UserService {
         }
         return users;
     }
+
+    @Override
+    public boolean addUser(User user) {
+        Integer x = userMapper.insertUser(user);
+        if (x == null || x == 0) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public boolean updateUser(User user) {
+        Integer x = userMapper.updateUser(user);
+        if (x == null || x == 0) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public boolean delUser(Integer id) {
+        Integer x = userMapper.deleteUser(id);
+        if (x == null || x == 0) {
+            return false;
+        }
+        return true;
+    }
 }

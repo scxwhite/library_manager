@@ -54,7 +54,12 @@ textarea {
 	color: #444;
 	text-transform: uppercase;
 }
-
+.col-center-block {
+	float: none;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
 
 
 
