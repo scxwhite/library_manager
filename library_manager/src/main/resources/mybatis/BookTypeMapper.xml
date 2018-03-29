@@ -18,4 +18,26 @@
         FROM
         <include refid="base_table"/>
     </select>
+
+    <insert id="insertBookType" >
+        INSERT INTO
+        <include refid="base_table"/>
+        (type_name)
+        VALUES
+        (#{typeName,jdbcType=VARCHAR})
+    </insert>
+
+    <update id="updateBookType">
+        UPDATE
+        <include refid="base_table"/>
+        SET type_name = #{typeName,jdbcType=VARCHAR}
+        WHERE type_id = #{typeId,jdbcType=INTEGER}
+    </update>
+
+    <delete id="deleteById">
+        DELETE
+        FROM
+        <include refid="base_table"/>
+        WHERE type_id = #{typeId,jdbcType=INTEGER}
+    </delete>
 </mapper>

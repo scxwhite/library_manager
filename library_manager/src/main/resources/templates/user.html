@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+
+<title>图书管理系统-学生端</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link th:href="@{${#httpServletRequest.getContextPath()} + '/css/bootstrap.min.css'}" rel="stylesheet">
+<link th:href="@{${#httpServletRequest.getContextPath()} + '/css/bootstrap-responsive.min.css'}" rel="stylesheet">
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600"
+        rel="stylesheet">
+<link th:href="@{${#httpServletRequest.getContextPath()} + '/css/font-awesome.css'}" rel="stylesheet">
+<link th:href="@{${#httpServletRequest.getContextPath()} + '/css/style.css'}" rel="stylesheet">
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div th:include="child :: #head"/>
+
+<div th:include="child :: #menu" />
+</div>
+<div class="container">
+    <table id="selectTable" data-url="/user/list" class="table"  data-toggle="table" data-search="true" data-pagination="true"  data-checkbox-header="false" data-maintain-selected="true">
+      <thead >
+      <tr>
+        <th data-field="username" data-title="学号" ></th>
+        <th data-field="password" data-title="密码" data-sortable="true"></th>
+        <th data-field="info" data-title="信息" data-formatter ="infoFormatter"></th>
+        <th data-field="isValid" data-title="能否借阅" data-formatter = "isValidFormatter"></th>
+      </tr>
+      </thead>
+    </table>
+</div>
+<div th:include="child :: #footer" />
+<script th:src="@{${#httpServletRequest.getContextPath()} + '/js/jquery-1.7.2.min.js'}"></script>
+<script th:src="@{${#httpServletRequest.getContextPath()} + '/js/bootstrap.js'}"></script>
+<script th:src="@{${#httpServletRequest.getContextPath()} + '/js/bootstrap-table.min.js'}"></script>
+<script th:src="@{${#httpServletRequest.getContextPath()} + '/js/bootstrap-table-zh-CN.min.js'}"></script>
+<script th:src="@{${#httpServletRequest.getContextPath()} + '/js/setting.js'}"></script>
+<script th:src="@{${#httpServletRequest.getContextPath()} + '/js/base.js'}"></script>
+<script >
+  $(function () {
+      $('#userManager').addClass("active");
+  });
+  function isValidFormatter(val) {
+      if (val == 0) {
+          return "否";
+      } else {
+          return "能";
+      }
+  }
+</script>
+
+</body>
+</html>

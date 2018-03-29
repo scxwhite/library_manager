@@ -24,11 +24,28 @@ public class BookTypeServiceImpl implements BookTypeService {
 
     @Override
     public boolean addBookType (BookType book) {
-        return false;
+        Integer x = bookTypeMapper.insertBookType(book);
+        if (x == null || x == 0) {
+            return false;
+        }
+        return true;
     }
 
     @Override
     public boolean updateBookType (BookType book) {
-        return false;
+        Integer x = bookTypeMapper.updateBookType(book);
+        if (x == null || x == 0) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public boolean deleteBookType(Integer typeId) {
+        Integer x = bookTypeMapper.deleteById(typeId);
+        if (x == null || x == 0) {
+            return false;
+        }
+        return true;
     }
 }

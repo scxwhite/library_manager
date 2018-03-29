@@ -18,74 +18,51 @@
     <![endif]-->
 </head>
 <body>
-<div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
-                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </a><a class="brand" href="index.html"></a>
-      <div class="nav-collapse">
-        <ul class="nav pull-right">
-          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                            class="icon-cog"></i> Account <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="javascript:;">Settings</a></li>
-              <li><a href="javascript:;">Help</a></li>
-            </ul>
-          </li>
-          <li class="dropdown"><a href="#" id="username" class="dropdown-toggle" data-toggle="dropdown"><i
-                            class="icon-user"></i> username <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="javascript:;" id="info">个人信息</a></li>
-              <li><a href="javascript:;" id="exit">退出</a></li>
-            </ul>
-          </li>
-        </ul>
-        <form class="navbar-search pull-right">
-          <input type="text" class="search-query" placeholder="Search">
+<div th:include="child :: #head"/>
+<div th:include="child :: #menu" />
+<div class="container">
+  <div id="toolbar">
+    <div class="btn-group">
+      <button class="btn btn-info btn-md" data-toggle="modal" id="addBookTypeBtn">新增</button>
+    </div>
+  </div>
+  <table id="bookTypeTable" data-url="/bookManager/bookTypeList" data-show-refresh="true" class="table" data-toolbar="#toolbar" data-toggle="table" data-search="true" data-pagination="true"  data-checkbox-header="false" data-maintain-selected="true">
+    <thead >
+    <tr>
+      <th data-field="typeName" data-title="类型名称" ></th>
+      <th data-title="操作" data-formatter="operatorFormatter"></th>
+    </tr>
+    </thead>
+  </table>
+</div>
+
+
+<div class="modal fade" id="addBookType" tabindex="-10" role="dialog"  aria-labelledby="title" aria-hidden="true" style="display:none">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="title">添加书籍</h4>
+      </div>
+      <div class="modal-body">
+        <form id="edit-bookType" class="center-block" action="#">
+          <input id="id" value="" name="typeId" type="hidden">
+            <div class="control-group">
+              <label class="control-label" for="title">类型名称</label>
+              <div class="controls">
+                <input type="text" class="span3"   name="typeName">
+              </div>
+            </div>
         </form>
       </div>
-      <!--/.nav-collapse --> 
-    </div>
-    <!-- /container --> 
-  </div>
-  <!-- /navbar-inner --> 
-</div>
-<!-- /navbar -->
-<div class="subnavbar">
-  <div th:include="navbar.html"/>
-</div>
-<div class="main">
-  <div class="main-inner">
-    <div class="container">
-      <table id="selectTable" data-url="/user/list" class="table"  data-toggle="table" data-search="true" data-pagination="true"  data-checkbox-header="false" data-maintain-selected="true">
-        <thead >
-        <tr>
-          <th data-field="username" data-title="学号" ></th>
-          <th data-field="password" data-title="密码" data-sortable="true"></th>
-          <th data-field="info" data-title="信息" data-formatter ="infoFormatter"></th>
-          <th data-field="isValid" data-title="能否借阅" data-formatter = "isValidFormatter"></th>
-        </tr>
-        </thead>
-      </table>
-    </div>
-  </div>
-</div>
-<div class="footer">
-  <div class="footer-inner">
-    <div class="container">
-      <div class="row">
-        <div class="span12"> &copy; 2018 <a href="#">学生信息管理系统</a> - Collect from <a href="#" title="网页模板" target="_blank">王雅茹</a></div>
-        <!-- /span12 --> 
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="closeModal">取消</button>
+        <button type="submit" class="btn btn-info add-btn" id="uploadBookType">提交</button>
       </div>
-      <!-- /row --> 
     </div>
-    <!-- /container --> 
   </div>
-  <!-- /footer-inner --> 
 </div>
-<!-- /footer --> 
-<!-- Le javascript
-================================================== --> 
-<!-- Placed at the end of the document so the pages load faster --> 
+<div th:include="child :: #footer" />
+<!-- Placed at the end of the document so the pages load faster -->
 <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/jquery-1.7.2.min.js'}"></script>
 <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/bootstrap.js'}"></script>
 <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/bootstrap-table.min.js'}"></script>
@@ -93,18 +70,85 @@
 <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/setting.js'}"></script>
 <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/base.js'}"></script>
 <script >
-  $(function () {
-      $('#bookType').addClass("active");
-      $('#bookAll').addClass("active");
-  });
+    var bookTypeCache = {};
+    $(function () {
 
-  function isValidFormatter(val) {
-      if (val == 0) {
-          return "否";
-      } else {
-          return "能";
-      }
-  }
+        initData();
+        initClass();
+        initEvent();
+    });
+    function initClass() {
+        $('#bookType').addClass("active");
+        $('#bookAll').addClass("active");
+    }
+    function initData() {
+
+    }
+    function initEvent() {
+        $('#addBookTypeBtn').on('click', function () {
+            $('#edit-bookType')[0].reset();
+            $('#addBookType').modal('show');
+        });
+
+        $('#uploadBookType').on('click', function () {
+            var id = $('#id').val();
+            var url;
+            //新增操作
+            if (id == "" || id == null || id == undefined) {
+                url = "/bookManager/addBookType";
+            } else {//更新操作
+                url = "/bookManager/updateBookType";
+            }
+            $.ajax({
+                url: url,
+                type: "post",
+                data: $('#edit-bookType').serialize(),
+                success: function (data) {
+                    if (data == true) {
+                        alert("添加成功");
+                        $('#addBookType').modal('hide');
+                        $('#bookTypeTable').bootstrapTable('refresh');
+                    } else {
+                        alert("添加失败");6
+                    }
+                }
+            });
+        })
+    }
+
+    function operatorFormatter(val, row) {
+        bookTypeCache[row.typeId] = row;
+        return '<a href="javascript:editBookType(' + row.typeId + ')"><i class="icon-edit" ></i></a>&nbsp;&nbsp;' +
+            '<a href="javascript:deleteBookType(' + row.typeId + ')"><i class="icon-remove" ></i></a>';
+    }
+
+    function editBookType(id) {
+        console.log(JSON.stringify(bookTypeCache[id]))
+        formDataLoad("edit-bookType",bookTypeCache[id]);
+        $('#addBookType').modal('show');
+    }
+
+    function deleteBookType(id) {
+        if (!confirm("确定删除" + bookTypeCache[id].typeName + " ?")) {
+            return false;
+        }
+        $.ajax({
+            url: "/bookManager/delBookType",
+            data: {
+                id: id
+            },
+            type: "post",
+            success: function (data) {
+                if (data == true) {
+                    alert("删除成功");
+                    $('#bookTypeTable').bootstrapTable('refresh');
+                } else {
+                    alert("删除失败");
+                }
+            }
+        })
+    }
+
 </script>
 
 </body>

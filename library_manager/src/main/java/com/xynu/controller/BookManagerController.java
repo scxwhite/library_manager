@@ -55,4 +55,22 @@ public class BookManagerController {
     public List<BookType> bookTypeList() {
         return bookTypeService.findAllBookType();
     }
+
+    @RequestMapping(value = "addBookType", method = RequestMethod.POST)
+    @ResponseBody
+    public boolean addBookType(BookType bookType) {
+        return bookTypeService.addBookType(bookType);
+    }
+
+    @RequestMapping(value = "updateBookType", method = RequestMethod.POST)
+    @ResponseBody
+    public boolean updateBookType(BookType bookType) {
+        return bookTypeService.updateBookType(bookType);
+    }
+
+    @RequestMapping(value = "delBookType", method = RequestMethod.POST)
+    @ResponseBody
+    public boolean delBookType(Integer id) {
+        return bookTypeService.deleteBookType(id);
+    }
 }

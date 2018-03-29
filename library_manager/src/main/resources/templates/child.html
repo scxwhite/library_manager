@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<div id="menu">
+    <div class="subnavbar">
+        <div class="subnavbar-inner" >
+            <div class="container">
+                <ul class="mainnav">
+                    <li id="index"><a th:href="@{/page/index}"><i class="icon-dashboard"></i><span>Dashboard</span> </a> </li>
+                    <li><a th:href="@{/page/reports}"><i class="icon-list-alt"></i><span>Reports</span> </a> </li>
+                    <li><a th:href="@{/page/guidely}"><i class="icon-facetime-video"></i><span>App Tour</span> </a></li>
+                    <li><a th:href="@{/page/charts}"><i class="icon-bar-chart"></i><span>Charts</span> </a> </li>
+                    <li><a th:href="@{/page/shortcodes}"><i class="icon-code"></i><span>Shortcodes</span> </a> </li>
+                    <li id="userManager"><a th:href="@{/page/user}"><i class="icon-user"></i><span>学生管理</span> </a> </li>
+                    <li class="dropdown" id="bookAll"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-book"></i><span>图书管理</span> <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li id="book"><a th:href="@{/page/book}">书籍管理</a></li>
+                            <li id="bookType"><a th:href="@{/page/booktype}">类别管理</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-long-arrow-down"></i><span>Drops</span> <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a th:href="@{/page/icons}">Icons</a></li>
+                            <li><a th:href="@{/page/faq}">FAQ</a></li>
+                            <li><a th:href="@{/page/pricing}">Pricing Plans</a></li>
+                            <li><a th:href="@{/page/login}">Login</a></li>
+                            <li><a th:href="@{/page/signup}">Signup</a></li>
+                            <li><a th:href="@{/page/error}">404</a></li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    <div class="footer navbar-fixed-bottom">
+        <div class="footer-inner">
+            <div class="container">
+                <div class="row">
+                    <div class="span12"> &copy; 2018 <a href="#">学生信息管理系统</a> - Collect from <a href="#" title="网页模板" target="_blank">王雅茹</a></div>
+                    <!-- /span12 -->
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- /footer-inner -->
+    </div>
+</div>
+<div id="head">
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
+                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </a><a class="brand" href="index.html"></a>
+                <div class="nav-collapse">
+                    <ul class="nav pull-right">
+                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                                class="icon-cog"></i> Account <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="javascript:;">Settings</a></li>
+                                <li><a href="javascript:;">Help</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown"><a href="#" id="username" class="dropdown-toggle" data-toggle="dropdown"><i
+                                class="icon-user"></i> username <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="javascript:;" id="info">个人信息</a></li>
+                                <li><a href="javascript:;" id="exit">退出</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="navbar-search pull-right">
+                        <input type="text" class="search-query" placeholder="Search">
+                    </form>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- /navbar-inner -->
+    </div>
+</div>
+</body>
+</html>
