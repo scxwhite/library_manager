@@ -141,6 +141,7 @@
    */
   function initEvent() {
       $('#addBookBtn').on('click', function () {
+          $('#title').text("添加书籍");
           $('#edit-book')[0].reset();
           $('#addBook').modal('show');
       });
@@ -217,6 +218,7 @@
   }
 
   function editBook(bookId) {
+      $('#title').text("编辑书籍");
       $('#edit-book')[0].reset();
       formDataLoad('edit-book', bookCache[bookId]);
       $('#addBook').modal('show');

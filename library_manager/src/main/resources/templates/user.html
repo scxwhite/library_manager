@@ -108,6 +108,7 @@
 
   function initEvent() {
       $('#addUserBtn').on('click', function () {
+          $('#title').text("添加用户");
           $('#edit-user')[0].reset();
           $('#addUser').modal('show');
       });
@@ -147,12 +148,17 @@
 
   function operatorFormatter(val, row) {
       userCache[row.id] = row;
-      return '<a href="javascript:editUser(' + row.id + ')"><i class="icon-edit" ></i></a>&nbsp;&nbsp;' +
-          '<a href="javascript:delUser(' + row.id + ')"><i class="icon-remove" ></i></a>';
+      return   '<a href="javascript:borrow(' + row.id + ')"><i class="icon-eye-open" ></i></a>&nbsp;&nbsp; ' +
+              '<a href="javascript:editUser(' + row.id + ')"><i class="icon-edit" ></i></a>&nbsp;&nbsp;' +
+              '<a href="javascript:delUser(' + row.id + ')"><i class="icon-remove" ></i></a>';
+  }
+  function borrow(id) {
+      alert(id + "借阅记录")
   }
 
   function editUser(id) {
-       $('#edit-user')[0].reset();
+      $('#title').text("编辑用户");
+      $('#edit-user')[0].reset();
       formDataLoad('edit-user', userCache[id]);
       $('#addUser').modal('show');
   }
