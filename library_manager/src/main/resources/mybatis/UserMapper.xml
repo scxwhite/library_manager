@@ -2,12 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xynu.mapper.UserMapper">
     <resultMap id="BaseResultMap" type="com.xynu.entity.User">
-        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <id column="id" property="id"/>
         <result column="username" property="username" jdbcType="VARCHAR"/>
         <result column="password" property="password" jdbcType="VARCHAR"/>
         <result column="info" property="info" jdbcType="INTEGER"/>
         <result column="is_valid" property="isValid" jdbcType="INTEGER"/>
     </resultMap>
+    <resultMap id="logsMap" type="com.xynu.entity.BookLogs">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="book_id" property="bookId"/>
+        <result column="op_type" property="opType"/>
+        <result column="message" property="message"/>
+        <result column="create_time" property="createTime"/>
+    </resultMap>
+
     <sql id="base_column_list">
         id,username,password,info, is_valid
     </sql>
@@ -24,8 +33,6 @@
         password = #{password,jdbcType=VARCHAR}
         AND
         info = #{info,jdbcType=INTEGER}
-        AND
-        is_valid = 1
     </select>
 
     <insert id="insertUser" parameterType="com.xynu.entity.User" >
@@ -98,5 +105,20 @@
         <include refid="base_column_list"/>
         FROM
         <include refid="base_table"/>
+    </select>
+
+    <select id="selectLogsByUserId" resultMap="logsMap">
+        SELECT *
+        FROM
+        book_logs
+        WHERE user_id = #{userId, jdbcType=INTEGER}
+    </select>
+
+    <select id="selectUserById" resultType="com.xynu.entity.User">
+        SELECT
+        <include refid="base_column_list"/>
+        FROM
+        <include refid="base_table"/>
+        WHERE id = #{id, jdbcType=INTEGER}
     </select>
 </mapper>

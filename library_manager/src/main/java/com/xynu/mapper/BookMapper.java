@@ -23,4 +23,6 @@ public interface BookMapper {
     Integer insertBook (Book book);
 
     Integer deleteBook (Integer id);
+
+    Book selectBookById(Integer id);
 }

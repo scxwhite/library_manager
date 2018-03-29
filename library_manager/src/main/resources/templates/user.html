@@ -29,7 +29,7 @@
       <button class="btn btn-info btn-md" data-toggle="modal" id="addUserBtn">新增</button>
     </div>
   </div>
-    <table id="userTable" data-toolbar="#toolbar" data-show-refresh="true" data-url="/user/list" class="table"  data-toggle="table" data-search="true" data-pagination="true"  data-checkbox-header="false" data-maintain-selected="true">
+    <table id="userTable" data-toolbar="#toolbar" data-show-refresh="true" data-url="/user/list" class="table"  data-toggle="table" data-search="true" data-pagination="true">
       <thead >
       <tr>
         <th data-field="username" data-title="学号" ></th>
@@ -41,11 +41,11 @@
       </thead>
     </table>
 </div>
-<div class="modal fade" id="addUser" tabindex="-10" role="dialog"  aria-labelledby="title" aria-hidden="true" style="display:none">
+<div class="modal fade" id="addUser" tabindex="-10" role="dialog"  aria-labelledby="userTitle" aria-hidden="true" style="display:none">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="title">添加用户</h4>
+        <h4 class="modal-title" id="userTitle">添加用户</h4>
       </div>
       <div class="modal-body">
         <form id="edit-user" action="#">
@@ -57,15 +57,15 @@
             </div>
           </div>
           <div class="control-group">
-            <label class="control-label" for="title">密码</label>
+            <label class="control-label" for="password">密码</label>
             <div class="controls">
-              <input type="password" class="span3"   name="password">
+              <input type="password" class="span3"  id="password" name="password">
             </div>
           </div>
           <div class="control-group">
-            <label class="control-label" for="title">类型</label>
+            <label class="control-label" for="info">类型</label>
             <div class="controls">
-                <select name="info">
+                <select name="info" id="info">
                     <option value="0" >学生</option>
                     <option value="1" >管理员</option>
                 </select>
@@ -89,6 +89,31 @@
     </div>
   </div>
 </div>
+<div class="modal fade" id="showLogs" tabindex="-10" role="dialog"  aria-labelledby="logTitle" aria-hidden="true" style="display:none">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="logTitle">借书日志</h4>
+      </div>
+      <div class="modal-body">
+        <table id="logsTable" data-show-refresh="true" class="table"  data-toggle="table" data-search="true" data-pagination="true">
+          <thead >
+          <tr>
+            <th data-field="username" data-title="学号" ></th>
+            <th data-field="bookName" data-title="书名" ></th>
+            <th data-field="message"  data-title="额外信息"></th>
+            <th data-field="opType"   data-title="操作" ></th>
+            <th data-field="createTime"   data-title="操作时间"></th>
+          </tr>
+          </thead>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
 <div th:include="child :: #footer" />
 <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/jquery-1.7.2.min.js'}"></script>
 <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/bootstrap.js'}"></script>
@@ -102,13 +127,14 @@
       initClass();
       initEvent();
   });
+
   function initClass() {
       $('#userManager').addClass("active");
   }
 
   function initEvent() {
       $('#addUserBtn').on('click', function () {
-          $('#title').text("添加用户");
+          $('#userTitle').text("添加用户");
           $('#edit-user')[0].reset();
           $('#addUser').modal('show');
       });
@@ -153,11 +179,23 @@
               '<a href="javascript:delUser(' + row.id + ')"><i class="icon-remove" ></i></a>';
   }
   function borrow(id) {
-      alert(id + "借阅记录")
+      $.ajax({
+          url: "/logs/find",
+          data:{
+              userId: id
+          },
+          success: function (data) {
+              $('#logsTable').bootstrapTable('load', data);
+              $('.fixed-table-loading').hide();
+              $('#showLogs').modal('show');
+          }
+      })
+
+
   }
 
   function editUser(id) {
-      $('#title').text("编辑用户");
+      $('#userTitle').text("编辑用户");
       $('#edit-user')[0].reset();
       formDataLoad('edit-user', userCache[id]);
       $('#addUser').modal('show');

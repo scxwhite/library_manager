@@ -18,4 +18,6 @@ public interface BookService {
     boolean updateBook(Book book);
 
     boolean delBook (Integer id);
+
+    Book findBookById(Integer bookId);
 }

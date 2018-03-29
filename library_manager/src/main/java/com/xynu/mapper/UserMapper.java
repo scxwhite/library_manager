@@ -1,6 +1,7 @@
 package com.xynu.mapper;
 
 
+import com.xynu.entity.BookLogs;
 import com.xynu.entity.User;
 
 import java.util.List;
@@ -43,4 +44,13 @@ public interface UserMapper {
      * @return Integer
      */
     Integer insertUser(User user);
+
+    /**
+     * 根据用户ID查找日志
+     * @param userId
+     * @return
+     */
+    List<BookLogs> selectLogsByUserId(Integer userId);
+
+    User selectUserById(Integer id);
 }

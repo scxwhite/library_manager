@@ -55,4 +55,9 @@ public class BookServiceImpl implements BookService {
         }
         return true;
     }
+
+    @Override
+    public Book findBookById(Integer bookId) {
+        return bookMapper.selectBookById(bookId);
+    }
 }

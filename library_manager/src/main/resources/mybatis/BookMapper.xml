@@ -110,4 +110,12 @@
         WHERE
         book_id = #{bookId, jdbcType=INTEGER}
     </update>
+
+    <select id="selectBookById" resultType="com.xynu.entity.Book">
+        SELECT
+        <include refid="base_column_list"/>
+        FROM
+        <include refid="base_table"/>
+        WHERE book_id=#{id, jdbcType=INTEGER}
+    </select>
 </mapper>
