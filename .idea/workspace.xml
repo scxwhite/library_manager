@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a40df55-e4e8-493c-b9f5-275f2cf23966" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library_manager/src/main/resources/templates/borrow.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library_manager/src/main/java/com/xynu/controller/IndexController.java" afterPath="$PROJECT_DIR$/library_manager/src/main/java/com/xynu/controller/IndexController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library_manager/src/main/resources/templates/child.html" afterPath="$PROJECT_DIR$/library_manager/src/main/resources/templates/child.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library_manager/src/main/resources/application.yml" afterPath="$PROJECT_DIR$/library_manager/src/main/resources/application.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library_manager/src/main/resources/templates/borrow.html" afterPath="$PROJECT_DIR$/library_manager/src/main/resources/templates/borrow.html" />
     </list>
     <ignored path="$PROJECT_DIR$/web/target/" />
     <ignored path="$PROJECT_DIR$/library_manager/target/" />
@@ -19,132 +18,29 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BookMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/mybatis/BookMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="795">
-              <caret line="123" column="13" lean-forward="false" selection-start-line="123" selection-start-column="13" selection-end-line="123" selection-end-column="13" />
-              <folding>
-                <marker date="1522384106338" expanded="true" signature="1014:1077" ph="select FROM... " />
-                <marker date="1522384106338" expanded="true" signature="2812:2925" ph="DELETE FROM " />
-                <marker date="1522384106338" expanded="true" signature="3015:3071" ph="UPDATE SET... " />
-                <marker date="1522384106338" expanded="true" signature="3015:3937" ph="UPDATE SET t... " />
-                <marker date="1522384106338" expanded="true" signature="4028:4175" ph="SELECT FROM WHERE" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/templates/user.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="175" column="0" lean-forward="true" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
-              <folding>
-                <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1522384106343" expanded="true" signature="6953:6959" ph="&amp;nbsp;" />
-                <marker date="1522384106343" expanded="true" signature="6959:6965" ph="&amp;nbsp;" />
-                <marker date="1522384106343" expanded="true" signature="7061:7067" ph="&amp;nbsp;" />
-                <marker date="1522384106343" expanded="true" signature="7067:7073" ph="&amp;nbsp;" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="child.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/templates/child.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="17" column="98" lean-forward="true" selection-start-line="17" selection-start-column="98" selection-end-line="17" selection-end-column="98" />
-              <folding>
-                <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IndexController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/library_manager/src/main/java/com/xynu/controller/IndexController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="borrow.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="borrow.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/templates/borrow.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="43" column="10" lean-forward="true" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="10" />
+            <state relative-caret-position="195">
+              <caret line="56" column="4" lean-forward="true" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="4" />
               <folding>
-                <marker date="1522386956240" expanded="true" signature="7621:7627" ph="&amp;nbsp;" />
-                <marker date="1522386956240" expanded="true" signature="7627:7633" ph="&amp;nbsp;" />
+                <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/mybatis/UserMapper.xml">
+      <file leaf-file-name="book.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/templates/book.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="29" column="13" lean-forward="true" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+            <state relative-caret-position="239">
+              <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="114" selection-end-column="6" />
               <folding>
-                <marker date="1522325885338" expanded="true" signature="1203:1435" ph="select count... WHERE" />
-                <marker date="1522325885338" expanded="true" signature="2569:2625" ph="UPDATE SET... " />
-                <marker date="1522325885338" expanded="true" signature="2569:3167" ph="UPDATE SET u... " />
-                <marker date="1522325885338" expanded="true" signature="3256:3275" ph="DELETE FROM... " />
-                <marker date="1522325885338" expanded="true" signature="3256:3361" ph="DELETE FROM " />
-                <marker date="1522325885338" expanded="true" signature="3442:3505" ph="select FROM... " />
-                <marker date="1522325885338" expanded="true" signature="3624:3715" ph="SELECT * FRO... book_logs" />
-                <marker date="1522325885338" expanded="true" signature="3806:3869" ph="SELECT FROM... " />
-                <marker date="1522325885338" expanded="true" signature="3806:3950" ph="SELECT FROM WHERE" />
+                <marker date="1522389286573" expanded="true" signature="7900:7906" ph="&amp;nbsp;" />
+                <marker date="1522389286573" expanded="true" signature="7906:7912" ph="&amp;nbsp;" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/library_manager/src/main/java/com/xynu/controller/LoginController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="27" column="16" lean-forward="true" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/library_manager/src/main/java/com/xynu/service/UserService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/library_manager/src/main/java/com/xynu/service/impl/UserServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1496">
-              <caret line="84" column="45" lean-forward="false" selection-start-line="84" selection-start-column="45" selection-end-line="84" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/library_manager/src/main/java/com/xynu/mapper/UserMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="37" column="7" lean-forward="false" selection-start-line="37" selection-start-column="7" selection-end-line="37" selection-end-column="7" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -226,11 +122,9 @@
         <option value="$PROJECT_DIR$/library_manager/src/main/java/com/xynu/model/User.java" />
         <option value="$PROJECT_DIR$/library_manager/src/main/resources/templates/usermanager.html" />
         <option value="$PROJECT_DIR$/library_manager/src/main/java/com/xynu/model/Book.java" />
-        <option value="$PROJECT_DIR$/library_manager/src/main/java/com/xynu/entity/Book.java" />
         <option value="$PROJECT_DIR$/library_manager/src/main/java/com/xynu/entity/BookType.java" />
         <option value="$PROJECT_DIR$/library_manager/src/main/java/com/xynu/model/BookVO.java" />
         <option value="$PROJECT_DIR$/library_manager/src/main/resources/templates/login.html" />
-        <option value="$PROJECT_DIR$/library_manager/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/library_manager/src/main/resources/mybatis/BookTypeMapper.xml" />
         <option value="$PROJECT_DIR$/library_manager/src/main/java/com/xynu/mapper/BookTypeMapper.java" />
         <option value="$PROJECT_DIR$/library_manager/src/main/java/com/xynu/service/BookTypeService.java" />
@@ -245,7 +139,6 @@
         <option value="$PROJECT_DIR$/library_manager/src/main/java/com/xynu/service/LogsService.java" />
         <option value="$PROJECT_DIR$/library_manager/src/main/java/com/xynu/model/LogsVO.java" />
         <option value="$PROJECT_DIR$/library_manager/src/main/java/com/xynu/controller/LogsController.java" />
-        <option value="$PROJECT_DIR$/library_manager/src/main/resources/templates/book.html" />
         <option value="$PROJECT_DIR$/library_manager/src/main/java/com/xynu/entity/BookLogs.java" />
         <option value="$PROJECT_DIR$/library_manager/src/main/java/com/xynu/service/UserService.java" />
         <option value="$PROJECT_DIR$/library_manager/src/main/java/com/xynu/mapper/UserMapper.java" />
@@ -254,13 +147,16 @@
         <option value="$PROJECT_DIR$/library_manager/src/main/java/com/xynu/mapper/BookMapper.java" />
         <option value="$PROJECT_DIR$/library_manager/src/main/java/com/xynu/util/DateUtil.java" />
         <option value="$PROJECT_DIR$/library_manager/src/main/java/com/xynu/service/impl/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/library_manager/src/main/resources/mybatis/BookMapper.xml" />
         <option value="$PROJECT_DIR$/library_manager/src/main/resources/mybatis/UserMapper.xml" />
         <option value="$PROJECT_DIR$/library_manager/src/main/resources/templates/user.html" />
-        <option value="$PROJECT_DIR$/library_manager/src/main/resources/mybatis/library_manager.sql" />
         <option value="$PROJECT_DIR$/library_manager/src/main/java/com/xynu/controller/IndexController.java" />
-        <option value="$PROJECT_DIR$/library_manager/src/main/resources/templates/borrow.html" />
+        <option value="$PROJECT_DIR$/library_manager/src/main/java/com/xynu/entity/Book.java" />
+        <option value="$PROJECT_DIR$/library_manager/src/main/resources/mybatis/BookMapper.xml" />
         <option value="$PROJECT_DIR$/library_manager/src/main/resources/templates/child.html" />
+        <option value="$PROJECT_DIR$/library_manager/src/main/resources/mybatis/library_manager.sql" />
+        <option value="$PROJECT_DIR$/library_manager/src/main/resources/templates/book.html" />
+        <option value="$PROJECT_DIR$/library_manager/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/library_manager/src/main/resources/templates/borrow.html" />
       </list>
     </option>
   </component>
@@ -313,6 +209,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -432,32 +330,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mybatis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="library_manager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="library_manager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -498,8 +370,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -1061,7 +931,8 @@
       <workItem from="1522291346973" duration="215000" />
       <workItem from="1522293245491" duration="19236000" />
       <workItem from="1522373570302" duration="146000" />
-      <workItem from="1522383781440" duration="3271000" />
+      <workItem from="1522383781440" duration="5920000" />
+      <workItem from="1522402146284" duration="2856000" />
     </task>
     <task id="LOCAL-00001" summary="退出操作">
       <created>1522152684569</created>
@@ -1112,14 +983,29 @@
       <option name="project" value="LOCAL" />
       <updated>1522326110134</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="书籍图片展示">
+      <created>1522387067467</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1522387067467</updated>
+    </task>
+    <task id="LOCAL-00009" summary="图书浏览">
+      <created>1522389688847</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1522389688847</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65300000" />
+    <option name="totallyTimeSpent" value="70805000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1141,8 +1027,8 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28236607" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3247768" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22014925" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3247768" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22228146" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1170,7 +1056,9 @@
     <MESSAGE value="用户增删改查" />
     <MESSAGE value="bug fixed" />
     <MESSAGE value="借书日志" />
-    <option name="LAST_COMMIT_MESSAGE" value="借书日志" />
+    <MESSAGE value="书籍图片展示" />
+    <MESSAGE value="图书浏览" />
+    <option name="LAST_COMMIT_MESSAGE" value="图书浏览" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1254,13 +1142,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/library_manager/src/main/java/com/xynu/entity/Book.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/library_manager/src/main/java/com/xynu/entity/BookType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1279,13 +1160,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="41" lean-forward="true" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -1409,13 +1283,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/templates/book.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1457">
-          <caret line="118" column="10" lean-forward="true" selection-start-line="118" selection-start-column="10" selection-end-line="118" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/library_manager/src/main/java/com/xynu/service/impl/BookServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
@@ -1427,7 +1294,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
           <caret line="29" column="33" lean-forward="false" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1435,7 +1301,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2354">
           <caret line="127" column="0" lean-forward="false" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1443,7 +1308,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="26" column="38" lean-forward="false" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1451,7 +1315,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
           <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1459,7 +1322,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="748">
           <caret line="37" column="7" lean-forward="false" selection-start-line="37" selection-start-column="7" selection-end-line="37" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1467,30 +1329,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1496">
           <caret line="84" column="45" lean-forward="false" selection-start-line="84" selection-start-column="45" selection-end-line="84" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/mybatis/library_manager.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="85" column="31" lean-forward="true" selection-start-line="85" selection-start-column="31" selection-end-line="85" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/library_manager/src/main/java/com/xynu/controller/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
-          <caret line="27" column="16" lean-forward="true" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+          <caret line="27" column="16" lean-forward="false" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/static/img/body-bg.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library_manager/src/main/java/com/xynu/controller/IndexController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/mybatis/UserMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="29" column="13" lean-forward="true" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+        <state relative-caret-position="638">
+          <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
           <folding>
             <marker date="1522325885338" expanded="true" signature="1203:1435" ph="select count... WHERE" />
             <marker date="1522325885338" expanded="true" signature="2569:2625" ph="UPDATE SET... " />
@@ -1505,48 +1371,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/mybatis/BookMapper.xml">
+    <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/mybatis/library_manager.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="123" column="13" lean-forward="false" selection-start-line="123" selection-start-column="13" selection-end-line="123" selection-end-column="13" />
-          <folding>
-            <marker date="1522384106338" expanded="true" signature="1014:1077" ph="select FROM... " />
-            <marker date="1522384106338" expanded="true" signature="2812:2925" ph="DELETE FROM " />
-            <marker date="1522384106338" expanded="true" signature="3015:3071" ph="UPDATE SET... " />
-            <marker date="1522384106338" expanded="true" signature="3015:3937" ph="UPDATE SET t... " />
-            <marker date="1522384106338" expanded="true" signature="4028:4175" ph="SELECT FROM WHERE" />
-          </folding>
+        <state relative-caret-position="374">
+          <caret line="90" column="31" lean-forward="true" selection-start-line="90" selection-start-column="31" selection-end-line="90" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/static/img/body-bg.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library_manager/src/main/java/com/xynu/controller/IndexController.java">
+    <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/templates/user.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/templates/borrow.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="43" column="10" lean-forward="true" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="10" />
+        <state relative-caret-position="2794">
+          <caret line="174" column="3" lean-forward="false" selection-start-line="174" selection-start-column="3" selection-end-line="174" selection-end-column="3" />
           <folding>
-            <marker date="1522386956240" expanded="true" signature="7621:7627" ph="&amp;nbsp;" />
-            <marker date="1522386956240" expanded="true" signature="7627:7633" ph="&amp;nbsp;" />
+            <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <marker date="1522384106343" expanded="true" signature="6953:6959" ph="&amp;nbsp;" />
+            <marker date="1522384106343" expanded="true" signature="6959:6965" ph="&amp;nbsp;" />
+            <marker date="1522384106343" expanded="true" signature="7061:7067" ph="&amp;nbsp;" />
+            <marker date="1522384106343" expanded="true" signature="7067:7073" ph="&amp;nbsp;" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/templates/child.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="17" column="98" lean-forward="true" selection-start-line="17" selection-start-column="98" selection-end-line="17" selection-end-column="98" />
+        <state relative-caret-position="484">
+          <caret line="22" column="50" lean-forward="false" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
           <folding>
             <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -1554,18 +1405,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/templates/user.html">
+    <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="175" column="0" lean-forward="true" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
+        <state relative-caret-position="176">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/mybatis/BookMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="93" column="13" lean-forward="false" selection-start-line="92" selection-start-column="37" selection-end-line="93" selection-end-column="13" />
           <folding>
-            <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1522384106343" expanded="true" signature="6953:6959" ph="&amp;nbsp;" />
-            <marker date="1522384106343" expanded="true" signature="6959:6965" ph="&amp;nbsp;" />
-            <marker date="1522384106343" expanded="true" signature="7061:7067" ph="&amp;nbsp;" />
-            <marker date="1522384106343" expanded="true" signature="7067:7073" ph="&amp;nbsp;" />
+            <marker date="1522387862868" expanded="true" signature="1064:1127" ph="select FROM... " />
+            <marker date="1522387862868" expanded="true" signature="3033:3146" ph="DELETE FROM " />
+            <marker date="1522387862868" expanded="true" signature="3236:3292" ph="UPDATE SET... " />
+            <marker date="1522387862868" expanded="true" signature="3236:4257" ph="UPDATE SET t... " />
+            <marker date="1522387862868" expanded="true" signature="4348:4495" ph="SELECT FROM WHERE" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library_manager/src/main/java/com/xynu/entity/Book.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="18" column="32" lean-forward="false" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/templates/book.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="114" selection-end-column="6" />
+          <folding>
+            <marker date="1522389286573" expanded="true" signature="7900:7906" ph="&amp;nbsp;" />
+            <marker date="1522389286573" expanded="true" signature="7906:7912" ph="&amp;nbsp;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library_manager/src/main/resources/templates/borrow.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="56" column="4" lean-forward="true" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="4" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

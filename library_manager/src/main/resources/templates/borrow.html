@@ -37,13 +37,70 @@
   <div class="row" >
 
     <div class="span2 text-center" th:each="book, bookStatus: ${books}">
-      <a href="#" class="thumbnail">
+      <a th:href="'javascript:showBookDetail(' + ${book.bookId} + ')'" class="thumbnail">
         <img th:src="${book.url}" style="height: 160px; width: 130px"
              alt="通用的占位符缩略图">
       </a>
-      <a th:text="${book.title}" href="#"></a>
+      <a th:text="${book.title}" th:href="'javascript:showBookDetail(' + ${book.bookId} + ')'"></a>
       <p style="color: red" th:if="${book.stocks <= 10}" th:text="'库存量：'+ ${book.stocks}"></p>
       <p style="color: black" th:if="${book.stocks > 10}" th:text="'库存量：' + ${book.stocks}"></p>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="bookDetail" tabindex="-10" role="dialog"  aria-labelledby="title" aria-hidden="true" style="display:none">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="title"></h4>
+      </div>
+      <div class="modal-body">
+        <form id="bookDetailTable" class="center-block" action="#">
+          <input id="id" value="" name="bookId" type="hidden">
+
+          <div class="control-group">
+            <label class="control-label" for="title">书名</label>
+            <div class="controls">
+              <input type="text" class="span3"   name="title" readonly>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="publish">出版社</label>
+            <div class="controls">
+              <input type="text" class="span3" id="publish" name="publish" readonly>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="publishYear">出版年份</label>
+            <div class="controls">
+              <input type="text" class="span3" id="publishYear" name="publishYear" readonly>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="author">作者</label>
+            <div class="controls">
+              <input type="text" class="span3" id="author" name="author" readonly>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="price">价格</label>
+            <div class="controls">
+              <input type="text" class="span3" id="price" name="price" readonly>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="stocks">库存</label>
+            <div class="controls">
+              <input type="text" class="span3" id="stocks" name="stocks" readonly>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="closeModal">取消</button>
+        <button type="submit" class="btn btn-info add-btn" id="borrowBtn">借阅</button>
+      </div>
     </div>
   </div>
 </div>
@@ -54,19 +111,34 @@
 <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/bootstrap-table-zh-CN.min.js'}"></script>
 <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/setting.js'}"></script>
 <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/base.js'}"></script>
-<script >
-
+<script th:inline="javascript">
+  var booksCache = new Array();
   $(function () {
+      initData();
       initHtml();
+      initEvent();
   });
+  function initEvent() {
+      $('#borrowBtn').on('click', function () {
+
+      });
+  }
+  function initData() {
+      var tmp = [[${books}]];
+      tmp.forEach(function (book) {
+          booksCache[book.bookId] = book;
+      });
+  }
   /**
    * 初始化class
    */
   function initHtml() {
       $('#borrow').addClass("active");
   }
-
-
+  function showBookDetail(id) {
+      formDataLoad('bookDetailTable', booksCache[id]);
+      $('#bookDetail').modal('show');
+  }
 </script>
 
 </body>
