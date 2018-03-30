@@ -35,7 +35,6 @@
 <div th:include="child :: #menu"/>
 <div class="container">
   <div class="row" >
-
     <div class="span2 text-center" th:each="book, bookStatus: ${books}">
       <a th:href="'javascript:showBookDetail(' + ${book.bookId} + ')'" class="thumbnail">
         <img th:src="${book.url}" style="height: 160px; width: 130px"
@@ -104,6 +103,7 @@
     </div>
   </div>
 </div>
+
 <div th:include="child :: #footer" />
 <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/jquery-1.7.2.min.js'}"></script>
 <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/bootstrap.js'}"></script>
