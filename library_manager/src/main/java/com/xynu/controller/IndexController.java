@@ -1,10 +1,15 @@
 package com.xynu.controller;
 
 
+import com.xynu.entity.Book;
+import com.xynu.service.BookService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 /**
  * @author Administrator
@@ -12,6 +17,9 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/page/")
 public class IndexController {
+
+    @Autowired
+    private BookService bookService;
 
     /**
      * 页面跳转控制
@@ -23,5 +31,16 @@ public class IndexController {
         ModelAndView modelAndView = new ModelAndView(page);
         return modelAndView;
 
+    }
+
+    @RequestMapping("model/borrow")
+    public ModelAndView toBorrow() {
+        ModelAndView modelAndView = new ModelAndView("borrow");
+        //TODO  分页
+        List<Book> allBook = bookService.findAllBook();
+        if (allBook != null) {
+            modelAndView.addObject("books", allBook);
+        }
+        return modelAndView;
     }
 }
