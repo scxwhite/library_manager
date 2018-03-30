@@ -42,20 +42,8 @@
     </thead>
   </table>
 </div>
+<div th:include="child :: #footer"/>
 
-<div class="footer navbar-fixed-bottom">
-  <div class="footer-inner">
-    <div class="container">
-      <div class="row">
-        <div class="span12"> &copy; 2018 <a href="#">学生信息管理系统</a> - Collect from <a href="#" title="网页模板" target="_blank">王雅茹</a></div>
-        <!-- /span12 --> 
-      </div>
-      <!-- /row --> 
-    </div>
-    <!-- /container --> 
-  </div>
-  <!-- /footer-inner --> 
-</div>
 <div class="modal fade" id="addBook" tabindex="-10" role="dialog"  aria-labelledby="title" aria-hidden="true" style="display:none">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -105,11 +93,17 @@
               </div>
             </div>
             <div class="control-group">
-              <label class="control-label" for="number">库存量</label>
+              <label class="control-label" for="number">总藏书量</label>
               <div class="controls">
                 <input type="text" class="span3" id="number" name="number">
               </div>
             </div>
+          <div class="control-group">
+            <label class="control-label" for="url">图片链接</label>
+            <div class="controls">
+              <input type="text" class="span3" id="url" name="url">
+            </div>
+          </div>
         </form>
       </div>
       <div class="modal-footer">

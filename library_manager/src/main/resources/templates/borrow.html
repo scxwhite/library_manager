@@ -38,88 +38,12 @@
 
     <div class="span2 text-center" th:each="book, bookStatus: ${books}">
       <a href="#" class="thumbnail">
-        <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=833841079,2416037243&fm=58"
+        <img th:src="${book.url}" style="height: 160px; width: 130px"
              alt="通用的占位符缩略图">
       </a>
-      <br>
-      <a th:text="${book.title}" href="#"> </a>
-    </div>
-  </div>
-</div>
-
-<div class="footer navbar-fixed-bottom">
-  <div class="footer-inner">
-    <div class="container">
-      <div class="row">
-        <div class="span12"> &copy; 2018 <a href="#">学生信息管理系统</a> - Collect from <a href="#" title="网页模板" target="_blank">王雅茹</a></div>
-        <!-- /span12 --> 
-      </div>
-      <!-- /row --> 
-    </div>
-    <!-- /container --> 
-  </div>
-  <!-- /footer-inner --> 
-</div>
-<div class="modal fade" id="addBook" tabindex="-10" role="dialog"  aria-labelledby="title" aria-hidden="true" style="display:none">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="title">添加书籍</h4>
-      </div>
-      <div class="modal-body">
-        <form id="edit-book" class="center-block" action="#">
-            <input id="id" value="" name="bookId" type="hidden">
-            <div class="control-group">
-              <label class="control-label" for="typeId">类别</label>
-              <div class="controls">
-                <select id="typeId" name="typeId" >
-                </select>
-              </div>
-            </div>
-
-            <div class="control-group">
-              <label class="control-label" for="title">书名</label>
-              <div class="controls">
-                <input type="text" class="span3"   name="title">
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label" for="publish">出版社</label>
-              <div class="controls">
-                <input type="text" class="span3" id="publish" name="publish">
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label" for="publishYear">出版年份</label>
-              <div class="controls">
-                <input type="text" class="span3" id="publishYear" name="publishYear">
-              </div>
-            </div>
-
-            <div class="control-group">
-              <label class="control-label" for="author">作者</label>
-              <div class="controls">
-                <input type="text" class="span3" id="author" name="author">
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label" for="price">价格</label>
-              <div class="controls">
-                <input type="text" class="span3" id="price" name="price">
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label" for="number">库存量</label>
-              <div class="controls">
-                <input type="text" class="span3" id="number" name="number">
-              </div>
-            </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" id="closeModal">取消</button>
-        <button type="submit" class="btn btn-info add-btn" id="uploadBook">提交</button>
-      </div>
+      <a th:text="${book.title}" href="#"></a>
+      <p style="color: red" th:if="${book.stocks <= 10}" th:text="'库存量：'+ ${book.stocks}"></p>
+      <p style="color: black" th:if="${book.stocks > 10}" th:text="'库存量：' + ${book.stocks}"></p>
     </div>
   </div>
 </div>
@@ -131,141 +55,18 @@
 <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/setting.js'}"></script>
 <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/base.js'}"></script>
 <script >
-  var bookCache = {};
-  var bookTypeCache = {};
+
   $(function () {
-      initData();
       initHtml();
-      initEvent();
   });
-
-  /**
-   * 初始化事件
-   */
-  function initEvent() {
-      $('#addBookBtn').on('click', function () {
-          $('#title').text("添加书籍");
-          $('#edit-book')[0].reset();
-          $('#addBook').modal('show');
-      });
-      $('#uploadBook').on('click', function () {
-          var id = $('#id').val();
-          var url, msg;
-          //新增操作
-          if (id == "" || id == null || id == undefined) {
-              url = "/bookManager/addBook";
-              msg = "添加";
-          } else {//更新操作
-              url = "/bookManager/updateBook";
-              msg = "更新";
-          }
-          $.ajax({
-              url: url,
-              type: "post",
-              data: $('#edit-book').serialize(),
-              success: function (data) {
-                  if (data == true) {
-                      alert(msg + "成功");
-                      $('#addBook').modal('hide');
-                      $('#bookTable').bootstrapTable('refresh');
-                  } else {
-                      alert(msg + "失败");
-                  }
-              }
-          });
-      })
-  }
-
-  /**
-   * 初始化数据
-   */
-  function initData() {
-
-      $.ajax({
-          url: "/bookManager/bookTypeList",
-          type: "get",
-          async: false,
-          success: function (data) {
-              var html = "";
-
-              data.forEach(function (value) {
-                  bookTypeCache[value.typeId] = value.typeName ;
-                  html = html + "<option value=" + value.typeId + ">" + value.typeName +"</option>";
-              });
-              var typeSelect =  $('#typeId');
-              typeSelect.empty();
-              typeSelect.append(html);
-          }
-      })
-  }
-
   /**
    * 初始化class
    */
   function initHtml() {
-      $('#book').addClass("active");
-      $('#bookAll').addClass("active");
+      $('#borrow').addClass("active");
   }
 
-  function typeIdFormatter(val) {
-      if (bookTypeCache.hasOwnProperty(val)) {
-          return bookTypeCache[val];
-      }
-      return val;
-  }
 
-  function operatorFormatter(val, row) {
-      bookCache[row.bookId] = row;
-      return '<a href="javascript:editBook(' + row.bookId + ')"><i class="icon-edit" ></i></a>&nbsp;&nbsp;' +
-          '<a href="javascript:deleteBook(' + row.bookId + ')"><i class="icon-remove" ></i></a>';
-  }
-
-  function editBook(bookId) {
-      $('#title').text("编辑书籍");
-      $('#edit-book')[0].reset();
-      formDataLoad('edit-book', bookCache[bookId]);
-      $('#addBook').modal('show');
-  }
-
-  function deleteBook(id) {
-      if (!confirm("确定删除" + bookCache[id].title + " ?")) {
-          return false;
-      }
-      $.ajax({
-          url: "/bookManager/delBook",
-          data: {
-              id: id
-          },
-          type: "get",
-          success: function (data) {
-              if (data == true) {
-                  alert("删除成功");
-                  $('#bookTable').bootstrapTable('refresh');
-              } else {
-                  alert("删除失败");
-              }
-          }
-
-      })
-  }
-  function priceFormatter(val) {
-      return  "¥ " + val;
-  }
-
-  function stocksFormatter(val,row) {
-      if (val <= 10) {
-          return '<label class="label label-warning">' + val + '</label>';
-      }
-      return '<label class="label label-info">' + val + '</label>';
-  }
-
-  function isValidFormatter(val) {
-      if (val == 0) {
-          return "否";
-      } else {
-          return "能";
-      }
-  }
 </script>
 
 </body>

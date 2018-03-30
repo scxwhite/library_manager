@@ -11,9 +11,10 @@
         <result column="price" property="price"/>
         <result column="number" property="number"/>
         <result column="stocks" property="stocks"/>
+        <result column="url" property="url"/>
     </resultMap>
     <sql id="base_column_list">
-        book_id,type_id,title,publish, publish_year, author,price,number,stocks
+        book_id,type_id,title,publish, publish_year, author,price,number,stocks,url
     </sql>
     <sql id="base_table" >
         book
@@ -48,6 +49,9 @@
             <if test="price != null">
                 price,
             </if>
+            <if test="url != null">
+                url,
+            </if>
             <if test="number != null">
                 number,stocks,
             </if>
@@ -72,10 +76,14 @@
             <if test="price != null">
                 #{price,jdbcType=DOUBLE},
             </if>
+            <if test="url != null">
+                #{url,jdbcType=VARCHAR},
+            </if>
             <if test="number != null">
                 #{number,jdbcType=INTEGER},
                 #{number,jdbcType=INTEGER},
             </if>
+
         </trim>
     </insert>
 
@@ -109,6 +117,9 @@
             </if>
             <if test="number != null">
                 number=#{number,jdbcType=INTEGER},
+            </if>
+            <if test="url != null">
+                url=#{url,jdbcType=INTEGER},
             </if>
        </trim>
         WHERE
