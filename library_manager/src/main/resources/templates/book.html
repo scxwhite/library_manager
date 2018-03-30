@@ -31,6 +31,7 @@
     <tr>
       <th data-field="typeId" data-title="类别" data-formatter="typeIdFormatter"></th>
       <th data-field="title" data-title="书名" ></th>
+      <th data-field="introduce" data-title="简介" data-formatter="introduceFormatter" data-width="20px"></th>
       <th data-field="publish" data-title="出版社"></th>
       <th data-field="publishYear" data-title="出版年份"></th>
       <th data-field="author" data-title="作者"></th>
@@ -42,7 +43,6 @@
     </thead>
   </table>
 </div>
-<div th:include="child :: #footer"/>
 
 <div class="modal fade" id="addBook" tabindex="-10" role="dialog"  aria-labelledby="title" aria-hidden="true" style="display:none">
   <div class="modal-dialog">
@@ -84,6 +84,12 @@
               <label class="control-label" for="author">作者</label>
               <div class="controls">
                 <input type="text" class="span3" id="author" name="author">
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="introduce">简介</label>
+              <div class="controls">
+                <input type="text" class="span3" id="introduce"  name="introduce">
               </div>
             </div>
             <div class="control-group">
@@ -248,7 +254,14 @@
       }
       return '<label class="label label-info">' + val + '</label>';
   }
+  function introduceFormatter(val) {
+      if (val == null || val == undefined) {
+          return "-";
+      }
 
+      var liHtml = '<span class="label label-default" style="overflow: hidden;width: 100px; text-overflow:ellipsis; white-space: nowrap;" data-toggle="tooltip" title="' + val + ' ">' + val + '</span>';
+      return liHtml;
+  }
   function isValidFormatter(val) {
       if (val == 0) {
           return "否";

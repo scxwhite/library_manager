@@ -12,9 +12,10 @@
         <result column="number" property="number"/>
         <result column="stocks" property="stocks"/>
         <result column="url" property="url"/>
+        <result column="introduce" property="introduce"/>
     </resultMap>
     <sql id="base_column_list">
-        book_id,type_id,title,publish, publish_year, author,price,number,stocks,url
+        book_id,type_id,title,publish, publish_year, author,price,number,stocks,url,introduce
     </sql>
     <sql id="base_table" >
         book
@@ -55,6 +56,9 @@
             <if test="number != null">
                 number,stocks,
             </if>
+            <if test="introduce != null">
+                introduce,
+            </if>
         </trim>
         VALUES
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -83,7 +87,9 @@
                 #{number,jdbcType=INTEGER},
                 #{number,jdbcType=INTEGER},
             </if>
-
+            <if test="introduce != null">
+                #{introduce,jdbcType=INTEGER},
+            </if>
         </trim>
     </insert>
 
@@ -121,16 +127,27 @@
             <if test="url != null">
                 url=#{url,jdbcType=INTEGER},
             </if>
+            <if test="introduce != null">
+                introduce=#{introduce,jdbcType=INTEGER},
+            </if>
        </trim>
         WHERE
         book_id = #{bookId, jdbcType=INTEGER}
     </update>
 
-    <select id="selectBookById" resultType="com.xynu.entity.Book">
+    <select id="selectBookById" resultMap="BaseResultMap">
         SELECT
         <include refid="base_column_list"/>
         FROM
         <include refid="base_table"/>
         WHERE book_id=#{id, jdbcType=INTEGER}
+    </select>
+
+    <select id="selectCanBorrowBooks" resultMap="BaseResultMap">
+        SELECT
+        book_id,title,stocks,url
+        FROM
+        <include refid="base_table"/>
+        WHERE stocks > 1
     </select>
 </mapper>

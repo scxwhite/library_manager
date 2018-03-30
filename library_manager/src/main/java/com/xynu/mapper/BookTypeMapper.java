@@ -38,4 +38,6 @@ public interface BookTypeMapper {
      * @return Integer
      */
     Integer deleteById(Integer typeId);
+
+    BookType findById (Integer typeId);
 }

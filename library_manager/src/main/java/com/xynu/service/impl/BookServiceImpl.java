@@ -60,4 +60,13 @@ public class BookServiceImpl implements BookService {
     public Book findBookById(Integer bookId) {
         return bookMapper.selectBookById(bookId);
     }
+
+    @Override
+    public List<Book> findCanBorrowBooks () {
+        List<Book> books = bookMapper.selectCanBorrowBooks();
+        if (books == null) {
+            return new ArrayList<>(0);
+        }
+        return books;
+    }
 }

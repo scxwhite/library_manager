@@ -25,4 +25,6 @@ public interface BookMapper {
     Integer deleteBook (Integer id);
 
     Book selectBookById(Integer id);
+
+    List<Book> selectCanBorrowBooks ();
 }

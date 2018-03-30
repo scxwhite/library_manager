@@ -11,9 +11,11 @@ public class BookVO {
     private String typeName;
     private String title;
     private String publish;
-    private String publishYear;
+    private Integer publishYear;
     private String author;
     private Double price;
     private Integer number;
     private Integer stocks;
+    private String url;
+    private String introduce;
 }

@@ -48,4 +48,9 @@ public class BookTypeServiceImpl implements BookTypeService {
         }
         return true;
     }
+
+    @Override
+    public BookType findById (Integer typeId) {
+        return bookTypeMapper.findById(typeId);
+    }
 }

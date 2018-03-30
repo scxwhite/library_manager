@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+
+<title>图书管理系统-学生端</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+  <link th:href="@{${#httpServletRequest.getContextPath()} + '/css/bootstrap.min.css'}" rel="stylesheet">
+  <link th:href="@{${#httpServletRequest.getContextPath()} + '/css/bootstrap-responsive.min.css'}" rel="stylesheet">
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600"
+        rel="stylesheet">
+  <link th:href="@{${#httpServletRequest.getContextPath()} + '/css/font-awesome.css'}" rel="stylesheet">
+  <link th:href="@{${#httpServletRequest.getContextPath()} + '/css/style.css'}" rel="stylesheet">
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  <style>
+    .rect {
+      height: 100px;
+      border: 1px solid black;
+      padding: 40px 0;
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px;
+      border-bottom-right-radius:5px;
+      border-bottom-left-radius:5px;
+      margin-top: 10px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body >
+<div th:include="child :: #head"/>
+<div th:include="child :: #menu"/>
+<div class="container">
+  <div class="row" style="margin: auto">
+      <div class="span6">
+          <img th:src="${book.url}" class="thumbnail" style="height: 250px;margin: auto;"
+               alt="通用的占位符缩略图">
+      </div>
+
+      <div class="span6 text-center" style="margin: auto;">
+          <p class="control-label" th:text="'书名：' + ${book.title}"></p>
+          <p class="control-label" th:text="'类别：' + ${book.typeName}"></p>
+          <p class="control-label" th:text="'出版社：' + ${book.publish}"></p>
+          <p class="control-label" th:text="'出版年份：' + ${book.publishYear}"></p>
+          <p class="control-label" th:text="'作者：' + ${book.author}"></p>
+          <p class="control-label" th:text="'价格：' + ${book.price}"></p>
+          <p class="control-label" th:text="'库存：' + ${book.stocks}"></p>
+      </div>
+  </div>
+    <div class="row">
+        <div class="span6" >
+            <p th:text="'简介：' + ${book.introduce}"></p>
+        </div>
+        <div class="span6" align="center">
+            <button class="btn btn-info" onclick="javascript:history.back(-1)">返回</button>
+            <button class="btn btn-info" >借阅</button>
+        </div>
+    </div>
+</div>
+
+<div th:include="child :: #footer" />
+<script th:src="@{${#httpServletRequest.getContextPath()} + '/js/jquery-1.7.2.min.js'}"></script>
+<script th:src="@{${#httpServletRequest.getContextPath()} + '/js/bootstrap.js'}"></script>
+<script th:src="@{${#httpServletRequest.getContextPath()} + '/js/bootstrap-table.min.js'}"></script>
+<script th:src="@{${#httpServletRequest.getContextPath()} + '/js/bootstrap-table-zh-CN.min.js'}"></script>
+<script th:src="@{${#httpServletRequest.getContextPath()} + '/js/setting.js'}"></script>
+<script th:src="@{${#httpServletRequest.getContextPath()} + '/js/base.js'}"></script>
+<script th:inline="javascript">
+  var booksCache = new Array();
+  $(function () {
+      initHtml();
+  });
+
+
+  /**
+   * 初始化class
+   */
+  function initHtml() {
+      $('#borrow').addClass("active");
+  }
+
+</script>
+
+</body>
+</html>

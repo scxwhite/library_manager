@@ -40,4 +40,12 @@
         <include refid="base_table"/>
         WHERE type_id = #{typeId,jdbcType=INTEGER}
     </delete>
+
+    <select id="findById" resultMap="BaseResultMap">
+        SELECT
+        <include refid="base_column_list"/>
+        FROM
+        <include refid="base_table"/>
+        WHERE type_id = #{typeId,jdbcType=INTEGER}
+    </select>
 </mapper>

@@ -136,8 +136,7 @@
       $('#borrow').addClass("active");
   }
   function showBookDetail(id) {
-      formDataLoad('bookDetailTable', booksCache[id]);
-      $('#bookDetail').modal('show');
+      location.href = "/page/model/bookDetail?id=" + id;
   }
 </script>
 

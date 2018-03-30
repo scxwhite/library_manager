@@ -20,4 +20,6 @@ public interface BookService {
     boolean delBook (Integer id);
 
     Book findBookById(Integer bookId);
+
+    List<Book> findCanBorrowBooks ();
 }
