@@ -150,4 +150,14 @@
         <include refid="base_table"/>
         WHERE stocks > 1
     </select>
+
+    <update id="borrowBook">
+        UPDATE
+        <include refid="base_table"/>
+        SET
+        stocks = stocks - 1
+        WHERE
+        WHERE book_id=#{id, jdbcType=INTEGER}
+    </update>
+
 </mapper>

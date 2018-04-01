@@ -10,7 +10,7 @@ import java.util.Date;
  * @date 2018/3/29
  */
 @Data
-public class BookLogs {
+public class BookLog {
 
     private Integer id;
     private Integer userId;

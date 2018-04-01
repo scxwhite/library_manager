@@ -21,7 +21,5 @@ public interface UserService {
 
     boolean delUser(Integer id);
 
-    List<BookLogsVO> findLogsByUserId(Integer userId);
-
     User findUserById(Integer id);
 }

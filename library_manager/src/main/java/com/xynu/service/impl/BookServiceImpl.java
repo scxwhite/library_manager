@@ -2,10 +2,11 @@ package com.xynu.service.impl;
 
 import com.xynu.entity.Book;
 import com.xynu.mapper.BookMapper;
-import com.xynu.model.BookVO;
 import com.xynu.service.BookService;
+import com.xynu.service.BookLogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,8 @@ public class BookServiceImpl implements BookService {
 
     @Autowired
     private BookMapper bookMapper;
-
+    @Autowired
+    private BookLogService logService;
 
     @Override
     public List<Book> findAllBook () {
@@ -68,5 +70,18 @@ public class BookServiceImpl implements BookService {
             return new ArrayList<>(0);
         }
         return books;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public synchronized boolean borrowBook (Integer bookId) {
+        Book book = bookMapper.selectBookById(bookId);
+        Integer x = null;
+        //借书
+        if (book.getStocks() > 1) {
+            x = bookMapper.borrowBook();
+        }
+        //打日志
+        return false;
     }
 }

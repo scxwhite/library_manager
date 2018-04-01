@@ -22,4 +22,6 @@ public interface BookService {
     Book findBookById(Integer bookId);
 
     List<Book> findCanBorrowBooks ();
+
+    boolean borrowBook (Integer bookId);
 }

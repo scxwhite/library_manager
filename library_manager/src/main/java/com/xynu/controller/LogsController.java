@@ -1,6 +1,7 @@
 package com.xynu.controller;
 
 import com.xynu.model.BookLogsVO;
+import com.xynu.service.BookLogService;
 import com.xynu.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,11 +20,11 @@ import java.util.List;
 public class LogsController {
 
     @Autowired
-    private UserService userService;
+    private BookLogService bookLogService;
 
     @RequestMapping("find")
     @ResponseBody
     public List<BookLogsVO> findLogsByUserId(Integer userId) {
-        return userService.findLogsByUserId(userId);
+        return bookLogService.findLogsByUserId(userId);
     }
 }

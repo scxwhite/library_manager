@@ -65,3 +65,12 @@ function formDataLoad(domId, obj) {
         }
     }
 }
+
+function alertDialog(title, content) {
+    $('#myModalLabel').text(title);
+    $('#content').text(content);
+    $('#myModal').modal('show');
+}
+function dismissDialog() {
+    $('#myModal').modal('hide');
+}

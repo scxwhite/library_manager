@@ -56,11 +56,11 @@
         </div>
         <div class="span6" align="center">
             <button class="btn btn-info" onclick="javascript:history.back(-1)">返回</button>
-            <button class="btn btn-info" >借阅</button>
+            <button class="btn btn-info" th:onclick="'javascript:borrowBook()'">借阅</button>
         </div>
     </div>
 </div>
-
+<div th:include="child :: #dialog" />
 <div th:include="child :: #footer" />
 <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/jquery-1.7.2.min.js'}"></script>
 <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/bootstrap.js'}"></script>
@@ -69,11 +69,34 @@
 <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/setting.js'}"></script>
 <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/base.js'}"></script>
 <script th:inline="javascript">
-  var booksCache = new Array();
+  var bookCache;
   $(function () {
+      bookCache = [[${book}]];
       initHtml();
+      initEvent();
   });
-
+  function initEvent() {
+      $('#confirmBtn').on('click', function(){
+          $.ajax({
+              url:  "/bookManager/borrow",
+              type: "post",
+              data: {
+                  bookId: bookCache.bookId
+              },
+              success: function (data) {
+                  if (data == true) {
+                      alertDialog("借阅结果", '借阅成功')
+                  } else {
+                      alertDialog("借阅结果", '借阅失败')
+                  }
+                  setTimeout(dismissDialog, 1000)
+              }
+          })
+      })
+  }
+  function borrowBook() {
+      alertDialog("借阅", '确定借阅 【' + bookCache.title + '】 ?')
+  }
 
   /**
    * 初始化class

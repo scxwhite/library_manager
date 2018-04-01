@@ -27,4 +27,7 @@ public interface BookMapper {
     Book selectBookById(Integer id);
 
     List<Book> selectCanBorrowBooks ();
+
+    Integer borrowBook ();
+
 }
