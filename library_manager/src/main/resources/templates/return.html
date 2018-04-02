@@ -41,6 +41,8 @@
                 <th data-field="bookName" data-title="书名" ></th>
                 <th data-field="opType"   data-title="操作" ></th>
                 <th data-field="createTime"   data-title="操作时间"></th>
+                <th data-field="isReturn" data-title="还书" data-formatter="returnOperator"></th>
+
             </tr>
             </thead>
         </table>
@@ -55,39 +57,40 @@
 <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/setting.js'}"></script>
 <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/base.js'}"></script>
 <script th:inline="javascript">
-  var bookCache;
   $(function () {
-      bookCache = [[${book}]];
       initHtml();
+      initData();
       initEvent();
   });
-    function initEvent() {
-
-        $('#borrowBtn').on('click', function () {
-            showDialog("借阅操作", "确认借阅 【" + bookCache.title +"】？");
-
-        });
-        $('#modalConfirm').on('click', function () {
-            hideDialog();
-            $.ajax({
-                url: "/logs/add",
-                type: "post",
-                data: {
-                    bookId: bookCache.bookId,
-                    userId: parseInt(getCookie('id'))
-                },
-                success:function (data) {
-                    var msg = '借阅成功';
-                    if (data == false) {
-                        msg = '借阅失败';
-                    }
-                    alert(msg);
-                }
-            })
-
-        })
+  function initData() {
+      $.ajax({
+          url: "/logs/find",
+          data:{
+              userId: getCookie("id")
+          },
+          success: function (data) {
+              $('#logsTable').bootstrapTable('load', data);
+              $('.fixed-table-loading').hide();
+          }
+      })
+  }
+    function returnOperator(val, row) {
+        if (val == 1) {
+            return '<span class="label label-success">' + 已还 +'</span>';
+        }
+        return '<span class="btn btn-primary" onclick="returnBook()">' + 还书 +'</span>';
     }
+    
+    function returnBook(bookId) {
+       $.ajax({
+            url: "/book/return",
+            data:{
+                bookId:bookId,
 
+
+            }
+       })
+    }
   /**
    * 初始化class
    */
