@@ -8,14 +8,6 @@
         <result column="info" property="info" jdbcType="INTEGER"/>
         <result column="is_valid" property="isValid" jdbcType="INTEGER"/>
     </resultMap>
-    <resultMap id="logsMap" type="com.xynu.entity.BookLogs">
-        <id column="id" property="id"/>
-        <result column="user_id" property="userId"/>
-        <result column="book_id" property="bookId"/>
-        <result column="op_type" property="opType"/>
-        <result column="message" property="message"/>
-        <result column="create_time" property="createTime"/>
-    </resultMap>
 
     <sql id="base_column_list">
         id,username,password,info, is_valid
@@ -24,8 +16,10 @@
         user
     </sql>
 
-    <select id="check" resultType="java.lang.Integer">
-        select count(1) FROM
+    <select id="check" resultMap="BaseResultMap">
+        select
+        <include refid="base_column_list"/>
+        FROM
         <include refid="base_table"/>
         WHERE
         username = #{username,jdbcType=VARCHAR}
@@ -105,13 +99,6 @@
         <include refid="base_column_list"/>
         FROM
         <include refid="base_table"/>
-    </select>
-
-    <select id="selectLogsByUserId" resultMap="logsMap">
-        SELECT *
-        FROM
-        book_logs
-        WHERE user_id = #{userId, jdbcType=INTEGER}
     </select>
 
     <select id="selectUserById" resultType="com.xynu.entity.User">

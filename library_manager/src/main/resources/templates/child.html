@@ -13,6 +13,7 @@
                     <li><a th:href="@{/page/charts}"><i class="icon-bar-chart"></i><span>Charts</span> </a> </li>
                     <li><a th:href="@{/page/shortcodes}"><i class="icon-code"></i><span>Shortcodes</span> </a></li>
                     <li id="borrow"><a th:href="@{/page/model/borrow}"><i class="icon-bookmark-empty"></i><span>借阅</span> </a></li>
+                    <li id="return"><a th:href="@{/page/model/return}"><i class="icon-bookmark"></i><span>还书</span> </a></li>
                     <li id="userManager" th:each="cookie :${#httpServletRequest.getCookies()}"
                         th:if="${cookie.getName().equals('info') && cookie.getValue().equals('1')}">
                         <a th:href="@{/page/user}"><i class="icon-user"></i><span>学生管理</span> </a>
@@ -41,7 +42,7 @@
     </div>
 </div>
 <div id="footer">
-    <div class=" navbar-static-bottom">
+    <div class="navbar navbar-fixed-bottom">
         <div class="footer-inner">
             <div class="container">
                 <div class="row">
@@ -86,6 +87,24 @@
             <!-- /container -->
         </div>
         <!-- /navbar-inner -->
+    </div>
+</div>
+
+<div id="myDialog" >
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">模态框（Modal）标题</h4>
+                </div>
+                <div class="modal-body" id="myModalContent">在这里添加一些文本</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" id="modalConfirm">确认</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
     </div>
 </div>
 </body>

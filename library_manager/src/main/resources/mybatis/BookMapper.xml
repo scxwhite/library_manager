@@ -130,7 +130,11 @@
             <if test="introduce != null">
                 introduce=#{introduce,jdbcType=INTEGER},
             </if>
-       </trim>
+            <if test="stocks != null">
+                number=#{stocks,jdbcType=INTEGER},
+            </if>
+
+        </trim>
         WHERE
         book_id = #{bookId, jdbcType=INTEGER}
     </update>

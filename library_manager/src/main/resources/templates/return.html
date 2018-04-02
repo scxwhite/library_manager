@@ -34,31 +34,16 @@
 <div th:include="child :: #head"/>
 <div th:include="child :: #menu"/>
 <div class="container">
-  <div class="row" style="margin: auto">
-      <div class="span6">
-          <img th:src="${book.url}" class="thumbnail" style="height: 250px;margin: auto;"
-               alt="通用的占位符缩略图">
-      </div>
-
-      <div class="span6 text-center" style="margin: auto;">
-          <p class="control-label" th:text="'书名：' + ${book.title}"></p>
-          <p class="control-label" th:text="'类别：' + ${book.typeName}"></p>
-          <p class="control-label" th:text="'出版社：' + ${book.publish}"></p>
-          <p class="control-label" th:text="'出版年份：' + ${book.publishYear}"></p>
-          <p class="control-label" th:text="'作者：' + ${book.author}"></p>
-          <p class="control-label" th:text="'价格：' + ${book.price}"></p>
-          <p class="control-label" th:text="'库存：' + ${book.stocks}"></p>
-      </div>
-  </div>
-    <div class="row">
-        <div class="span6" >
-            <p th:text="'简介：' + ${book.introduce}"></p>
-        </div>
-        <div class="span6" align="center">
-            <button class="btn btn-info" onclick="javascript:history.back(-1)">返回</button>
-            <button class="btn btn-info" id="borrowBtn">借阅</button>
-        </div>
-    </div>
+        <table id="logsTable" data-show-refresh="true" data-title="借书历史" class="table"  data-toggle="table" data-search="true" data-pagination="true">
+            <thead >
+            <tr>
+                <th data-field="username" data-title="学号" ></th>
+                <th data-field="bookName" data-title="书名" ></th>
+                <th data-field="opType"   data-title="操作" ></th>
+                <th data-field="createTime"   data-title="操作时间"></th>
+            </tr>
+            </thead>
+        </table>
 </div>
 
 <div th:include="child :: #footer" />
@@ -107,7 +92,7 @@
    * 初始化class
    */
   function initHtml() {
-      $('#borrow').addClass("active");
+      $('#return').addClass("active");
   }
 
 </script>

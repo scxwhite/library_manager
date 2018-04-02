@@ -24,17 +24,21 @@ public class LoginController {
     @RequestMapping(value = "check", method = RequestMethod.POST)
     @ResponseBody
     public boolean check(User user, HttpServletResponse response) {
-        boolean login = userService.login(user);
+        User check = userService.login(user);
         //如果登录成功
-        if (login) {
-            Cookie usernameCookie = new Cookie("username", user.getUsername());
-            Cookie infoCookie = new Cookie("info", String.valueOf(user.getInfo()));
+        if (check != null) {
+            Cookie usernameCookie = new Cookie("username", check.getUsername());
+            Cookie infoCookie = new Cookie("info", String.valueOf(check.getInfo()));
+            Cookie userIdCookie = new Cookie("id", String.valueOf(check.getId()));
             usernameCookie.setMaxAge(3 * 60 * 60);
             infoCookie.setMaxAge(3 * 60 * 60);
+            userIdCookie.setMaxAge(3 * 60 * 60);
             usernameCookie.setPath("/");
             infoCookie.setPath("/");
+            userIdCookie.setPath("/");
             response.addCookie(infoCookie);
             response.addCookie(usernameCookie);
+            response.addCookie(userIdCookie);
             return true;
         } else {
             return false;

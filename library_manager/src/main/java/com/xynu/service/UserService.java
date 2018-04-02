@@ -11,7 +11,7 @@ import java.util.List;
  */
 public interface UserService {
 
-    boolean login(User user);
+    User login(User user);
 
     List<User> findAllUser ();
 
@@ -21,7 +21,6 @@ public interface UserService {
 
     boolean delUser(Integer id);
 
-    List<BookLogsVO> findLogsByUserId(Integer userId);
 
     User findUserById(Integer id);
 }

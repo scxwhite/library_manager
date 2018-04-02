@@ -16,7 +16,7 @@ public interface UserMapper {
      * @param user  用户信息
      * @return 数量
      */
-    Integer check(User user);
+    User check(User user);
 
     /**
      * 查询所有用户
@@ -45,12 +45,6 @@ public interface UserMapper {
      */
     Integer insertUser(User user);
 
-    /**
-     * 根据用户ID查找日志
-     * @param userId
-     * @return
-     */
-    List<BookLogs> selectLogsByUserId(Integer userId);
 
     User selectUserById(Integer id);
 }

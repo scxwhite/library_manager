@@ -36,12 +36,9 @@ public class UserServiceImpl implements UserService {
      * @return  结果
      */
     @Override
-    public boolean login (User user) {
-        Integer check = userMapper.check(user);
-        if (check == null || check == 0) {
-            return false;
-        }
-        return true;
+    public User login (User user) {
+        User check = userMapper.check(user);
+        return check;
     }
 
     @Override
@@ -80,32 +77,6 @@ public class UserServiceImpl implements UserService {
         return true;
     }
 
-    @Override
-    public List<BookLogsVO> findLogsByUserId(Integer userId) {
-        List<BookLogs> bookLogs = userMapper.selectLogsByUserId(userId);
-        if (bookLogs == null ) {
-            return new ArrayList<>(0);
-        }
-        List<BookLogsVO> bookLogsVOS = new ArrayList<>(bookLogs.size());
-        User user = this.findUserById(userId);
-        Map<Integer, String> bookNameCache = new HashMap<>();
-        bookLogs.forEach(x -> {
-            BookLogsVO bookLogsVO = new BookLogsVO();
-            BeanUtils.copyProperties(x, bookLogsVO);
-            if (bookNameCache.get(x.getBookId()) != null) {
-                bookLogsVO.setBookName(bookNameCache.get(x.getBookId()));
-            } else {
-                Book book = bookService.findBookById(x.getBookId());
-                bookLogsVO.setBookName(book.getTitle());
-                bookNameCache.put(x.getBookId(), book.getTitle());
-            }
-            bookLogsVO.setUsername(user.getUsername());
-            bookLogsVO.setCreateTime(DateUtil.getStringDate(null, x.getCreateTime()));
-            bookLogsVO.setOpType(x.getOpType() == 1 ? "还书" : "借阅");
-            bookLogsVOS.add(bookLogsVO);
-        });
-        return bookLogsVOS;
-    }
 
     @Override
     public User findUserById(Integer id) {
