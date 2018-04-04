@@ -34,18 +34,48 @@
 <div th:include="child :: #head"/>
 <div th:include="child :: #menu"/>
 <div class="container">
-        <table id="logsTable" data-show-refresh="true" data-title="借书历史" class="table"  data-toggle="table" data-search="true" data-pagination="true">
-            <thead >
-            <tr>
-                <th data-field="username" data-title="学号" ></th>
-                <th data-field="bookName" data-title="书名" ></th>
-                <th data-field="opType"   data-title="操作" ></th>
-                <th data-field="createTime"   data-title="操作时间"></th>
-                <th data-field="isReturn" data-title="还书" data-formatter="returnOperator"></th>
 
-            </tr>
-            </thead>
-        </table>
+    <ul class="nav nav-tabs" role="tablist" id="menu-tab">
+        <li class="active"><a href="#tab-return" role="tab" data-toggle="tab">借阅中</a></li>
+        <li ><a href="#tab-middle" role="tab" data-toggle="tab" id="borrowLogs">借阅日志</a></li>
+    </ul>
+    <div class="tab-content" >
+        <div class="tab-pane active" id="tab-return">
+            <div class="row">
+                <div class="span12">
+                    <table id="borrowTable" data-show-refresh="true" data-title="借书历史" class="table"  data-toggle="table" data-search="true" data-pagination="true">
+                        <thead >
+                        <tr>
+                            <th data-field="username" data-title="学号" ></th>
+                            <th data-field="bookName" data-title="书名" ></th>
+                            <th data-field="opType"   data-title="操作" ></th>
+                            <th data-field="createTime"   data-title="操作时间"></th>
+                            <th data-title="还书" data-formatter="returnOperator"></th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="tab-middle">
+            <div class="row">
+                <div class="span12">
+                    <table  id="logsTable" data-show-refresh="true" class="table"  data-toggle="table" data-search="true" data-pagination="true">
+                        <thead >
+                        <tr>
+                            <th data-field="username" data-title="学号" ></th>
+                            <th data-field="bookName" data-title="书名" ></th>
+                            <th data-field="opType"   data-title="操作" ></th>
+                            <th data-field="createTime"   data-title="操作时间"></th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
 </div>
 
 <div th:include="child :: #footer" />
@@ -64,32 +94,53 @@
   });
   function initData() {
       $.ajax({
-          url: "/logs/find",
+          url: "/logs/notReturn",
           data:{
               userId: getCookie("id")
           },
           success: function (data) {
-              $('#logsTable').bootstrapTable('load', data);
+              $('#borrowTable').bootstrapTable('load', data);
               $('.fixed-table-loading').hide();
           }
       })
   }
     function returnOperator(val, row) {
-        if (val == 1) {
-            return '<span class="label label-success">' + 已还 +'</span>';
-        }
-        return '<span class="btn btn-primary" onclick="returnBook()">' + 还书 +'</span>';
+
+        return '<span class="btn btn-primary" onclick="returnBook(' +row.bookId+ ') ">' + '还书' +'</span>';
     }
     
     function returnBook(bookId) {
+      console.log(bookId)
        $.ajax({
-            url: "/book/return",
+            url: "/bookManager/return",
+            type: "post",
             data:{
-                bookId:bookId,
+                bookId: parseInt(bookId),
+                userId: parseInt(getCookie('id'))
+            },
+            success:function (data) {
+               if (data == success) {
+                   alertDialog("还书结果", "还书成功")
+               } else {
+                   alertDialog("还书结果", "还书失败")
 
-
-            }
+               }
+           }
        })
+    }
+    function initEvent() {
+        $('#borrowLogs').on('click', function () {
+            $.ajax({
+                url: "/logs/find",
+                data:{
+                    userId: getCookie('id')
+                },
+                success: function (data) {
+                    $('#logsTable').bootstrapTable('load', data);
+                    $('.fixed-table-loading').hide();
+                }
+            })
+        })
     }
   /**
    * 初始化class

@@ -2,7 +2,6 @@ package com.xynu.service;
 
 
 import com.xynu.entity.Book;
-import com.xynu.model.BookVO;
 
 import java.util.List;
 
@@ -23,5 +22,7 @@ public interface BookService {
 
     List<Book> findCanBorrowBooks ();
 
-    boolean borrowBook (Integer bookId);
+    boolean borrowBook (Integer userId, Integer bookId);
+
+    boolean returnBook(Integer userId, Integer bookId);
 }

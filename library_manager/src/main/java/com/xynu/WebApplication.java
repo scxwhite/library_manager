@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-@EnableTransactionManagement
 @EnableAutoConfiguration
 @SpringBootApplication(scanBasePackages = "com.xynu")
 @MapperScan(basePackages = "com.xynu.mapper")

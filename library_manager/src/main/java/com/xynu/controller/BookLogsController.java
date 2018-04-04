@@ -1,5 +1,6 @@
 package com.xynu.controller;
 
+import com.xynu.entity.BookLogs;
 import com.xynu.model.BookLogsVO;
 import com.xynu.service.BookLogsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +28,10 @@ public class BookLogsController {
         return bookLogsService.findLogsByUserId(userId);
     }
 
-    @RequestMapping("add")
+
+    @RequestMapping("notReturn")
     @ResponseBody
-    public boolean addLog(Integer bookId,Integer userId) {
-        return bookLogsService.addLog(bookId, userId);
+    public List<BookLogsVO> getNotReturnBooks(Integer userId) {
+        return bookLogsService.getNotReturnBooks(userId);
     }
 }

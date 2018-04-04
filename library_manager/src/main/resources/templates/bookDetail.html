@@ -56,15 +56,10 @@
         </div>
         <div class="span6" align="center">
             <button class="btn btn-info" onclick="javascript:history.back(-1)">返回</button>
-<<<<<<< HEAD
-            <button class="btn btn-info" id="borrowBtn">借阅</button>
-=======
             <button class="btn btn-info" th:onclick="'javascript:borrowBook()'">借阅</button>
->>>>>>> aaf21035a204593496e838eeadd6bb50e49869bf
         </div>
     </div>
 </div>
-<div th:include="child :: #dialog" />
 <div th:include="child :: #footer" />
 <div th:include="child :: #myDialog" />
 <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/jquery-1.7.2.min.js'}"></script>
@@ -86,7 +81,8 @@
               url:  "/bookManager/borrow",
               type: "post",
               data: {
-                  bookId: bookCache.bookId
+                  bookId: bookCache.bookId,
+                  userId: getCookie('id')
               },
               success: function (data) {
                   if (data == true) {

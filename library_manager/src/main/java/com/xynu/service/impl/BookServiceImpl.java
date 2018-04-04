@@ -1,9 +1,10 @@
 package com.xynu.service.impl;
 
 import com.xynu.entity.Book;
+import com.xynu.entity.BookLogs;
 import com.xynu.mapper.BookMapper;
+import com.xynu.service.BookLogsService;
 import com.xynu.service.BookService;
-import com.xynu.service.BookLogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,7 +21,7 @@ public class BookServiceImpl implements BookService {
     @Autowired
     private BookMapper bookMapper;
     @Autowired
-    private BookLogService logService;
+    private BookLogsService bookLogsService;
 
     @Override
     public List<Book> findAllBook () {
@@ -72,16 +73,45 @@ public class BookServiceImpl implements BookService {
         return books;
     }
 
+
+
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public synchronized boolean borrowBook (Integer bookId) {
-        Book book = bookMapper.selectBookById(bookId);
-        Integer x = null;
-        //借书
-        if (book.getStocks() > 1) {
-            x = bookMapper.borrowBook();
+    public synchronized boolean borrowBook (Integer userId, Integer bookId) {
+        Book book = this.findBookById(bookId);
+        if (book.getStocks() < 1) {
+            return false;
         }
-        //打日志
-        return false;
+        //准备借书
+        book.setStocks(book.getStocks() - 1);
+        this.updateBook(book);
+        BookLogs bookLogs = new BookLogs();
+        bookLogs.setBookId(bookId);
+        bookLogs.setUserId(userId);
+        bookLogs.setOpType(0);
+        Integer x = bookLogsService.insertLog(bookLogs);
+        if (x == null || x == 0) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public boolean returnBook(Integer userId, Integer bookId) {
+
+        Book book = this.findBookById(bookId);
+        //准备还书
+        book.setStocks(book.getStocks() + 1);
+        this.updateBook(book);
+        BookLogs bookLogs = new BookLogs();
+        bookLogs.setBookId(bookId);
+        bookLogs.setUserId(userId);
+        bookLogs.setOpType(1);
+        Integer x = bookLogsService.insertLog(bookLogs);
+        if (x == null || x == 0) {
+            return false;
+        }
+        return true;
     }
 }

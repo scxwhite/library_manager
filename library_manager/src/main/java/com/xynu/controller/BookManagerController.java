@@ -74,9 +74,17 @@ public class BookManagerController {
         return bookTypeService.deleteBookType(id);
     }
 
-    @RequestMapping(value = "/borrow", method = RequestMethod.POST)
+    @RequestMapping(value = "borrow", method = RequestMethod.POST)
     @ResponseBody
-    public boolean borrowBook(Integer bookId){
-        return bookService.borrowBook(bookId);
+    public boolean borrowBook(Integer userId, Integer bookId){
+        return bookService.borrowBook(userId, bookId);
     }
+
+    @RequestMapping(value = "return", method = RequestMethod.POST)
+    @ResponseBody
+    public boolean returnBook(Integer userId, Integer bookId){
+        return bookService.returnBook(userId, bookId);
+    }
+
+
 }

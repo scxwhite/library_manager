@@ -12,14 +12,13 @@ import com.xynu.util.DateUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @Service
-public class BookBookLogsServiceImpl implements BookLogsService {
+public class BookLogsServiceImpl implements BookLogsService {
 
     @Autowired
     private UserService userService;
@@ -57,24 +56,32 @@ public class BookBookLogsServiceImpl implements BookLogsService {
     }
 
     @Override
-    @Transactional(rollbackFor = Exception.class)
-    public boolean addLog(Integer bookId, Integer userId) {
-        Book book = bookService.findBookById(bookId);
-        if (book.getStocks() < 1) {
-            return false;
+    public Integer insertLog(BookLogs bookLogs) {
+        return bookLogsMapper.insertLog(bookLogs);
+    }
+
+
+    @Override
+    public List<BookLogsVO> getNotReturnBooks(Integer userId) {
+        List<BookLogsVO> bookLogsVOS = this.findLogsByUserId(userId);
+        bookLogsVOS.sort((book1, book2) -> {
+            int x = book1.getCreateTime().compareTo(book2.getCreateTime());
+            return x;
+        });
+        List<BookLogsVO> borrowList = new ArrayList<>();
+        List<BookLogsVO> returnList = new ArrayList<>();
+        for (BookLogsVO bookLogsVO : bookLogsVOS) {
+            if (bookLogsVO.getOpType().equals("借阅")){
+                borrowList.add(bookLogsVO);
+            } else {
+                returnList.add(bookLogsVO);
+            }
         }
-        //准备借书
-        book.setStocks(book.getStocks() - 1);
-        bookService.updateBook(book);
-        BookLogs bookLogs = new BookLogs();
-        bookLogs.setBookId(bookId);
-        bookLogs.setUserId(userId);
-        bookLogs.setOpType(0);
-        Integer x = bookLogsMapper.insertLog(bookLogs);
-        if (x == null || x == 0) {
-            return false;
-        }
-        return true;
+        returnList.forEach(bookLogsVO -> {
+            borrowList.remove(bookLogsVO);
+        });
+
+        return borrowList;
     }
 
 }
