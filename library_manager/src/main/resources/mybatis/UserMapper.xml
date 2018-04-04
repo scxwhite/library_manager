@@ -9,6 +9,7 @@
         <result column="is_valid" property="isValid" jdbcType="INTEGER"/>
     </resultMap>
 
+
     <sql id="base_column_list">
         id,username,password,info, is_valid
     </sql>

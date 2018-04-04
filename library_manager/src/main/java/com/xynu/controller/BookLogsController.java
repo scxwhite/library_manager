@@ -19,17 +19,17 @@ import java.util.List;
 public class BookLogsController {
 
     @Autowired
-    private BookLogsService logsService;
+    private BookLogsService bookLogsService;
 
     @RequestMapping("find")
     @ResponseBody
     public List<BookLogsVO> findLogsByUserId(Integer userId) {
-        return logsService.findLogsByUserId(userId);
+        return bookLogsService.findLogsByUserId(userId);
     }
 
     @RequestMapping("add")
     @ResponseBody
     public boolean addLog(Integer bookId,Integer userId) {
-        return logsService.addLog(bookId, userId);
+        return bookLogsService.addLog(bookId, userId);
     }
 }

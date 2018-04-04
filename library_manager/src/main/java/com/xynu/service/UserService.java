@@ -21,6 +21,5 @@ public interface UserService {
 
     boolean delUser(Integer id);
 
-
     User findUserById(Integer id);
 }

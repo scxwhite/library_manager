@@ -56,11 +56,15 @@
         </div>
         <div class="span6" align="center">
             <button class="btn btn-info" onclick="javascript:history.back(-1)">返回</button>
+<<<<<<< HEAD
             <button class="btn btn-info" id="borrowBtn">借阅</button>
+=======
+            <button class="btn btn-info" th:onclick="'javascript:borrowBook()'">借阅</button>
+>>>>>>> aaf21035a204593496e838eeadd6bb50e49869bf
         </div>
     </div>
 </div>
-
+<div th:include="child :: #dialog" />
 <div th:include="child :: #footer" />
 <div th:include="child :: #myDialog" />
 <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/jquery-1.7.2.min.js'}"></script>
@@ -76,32 +80,28 @@
       initHtml();
       initEvent();
   });
-    function initEvent() {
-
-        $('#borrowBtn').on('click', function () {
-            showDialog("借阅操作", "确认借阅 【" + bookCache.title +"】？");
-
-        });
-        $('#modalConfirm').on('click', function () {
-            hideDialog();
-            $.ajax({
-                url: "/logs/add",
-                type: "post",
-                data: {
-                    bookId: bookCache.bookId,
-                    userId: parseInt(getCookie('id'))
-                },
-                success:function (data) {
-                    var msg = '借阅成功';
-                    if (data == false) {
-                        msg = '借阅失败';
-                    }
-                    alert(msg);
-                }
-            })
-
-        })
-    }
+  function initEvent() {
+      $('#confirmBtn').on('click', function(){
+          $.ajax({
+              url:  "/bookManager/borrow",
+              type: "post",
+              data: {
+                  bookId: bookCache.bookId
+              },
+              success: function (data) {
+                  if (data == true) {
+                      alertDialog("借阅结果", '借阅成功')
+                  } else {
+                      alertDialog("借阅结果", '借阅失败')
+                  }
+                  setTimeout(dismissDialog, 1000)
+              }
+          })
+      })
+  }
+  function borrowBook() {
+      alertDialog("借阅", '确定借阅 【' + bookCache.title + '】 ?')
+  }
 
   /**
    * 初始化class

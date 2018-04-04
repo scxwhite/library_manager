@@ -1,22 +1,14 @@
 package com.xynu.service.impl;
 
-import com.xynu.entity.Book;
-import com.xynu.entity.BookLogs;
 import com.xynu.mapper.UserMapper;
 import com.xynu.entity.User;
-import com.xynu.model.BookLogsVO;
 import com.xynu.service.BookService;
 import com.xynu.service.UserService;
-import com.xynu.util.DateUtil;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 /**
@@ -76,7 +68,6 @@ public class UserServiceImpl implements UserService {
         }
         return true;
     }
-
 
     @Override
     public User findUserById(Integer id) {

@@ -1,7 +1,6 @@
 package com.xynu.mapper;
 
 
-import com.xynu.entity.BookLogs;
 import com.xynu.entity.User;
 
 import java.util.List;
