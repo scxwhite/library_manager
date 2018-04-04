@@ -43,7 +43,7 @@
         <div class="tab-pane active" id="tab-return">
             <div class="row">
                 <div class="span12">
-                    <table id="borrowTable" data-show-refresh="true" data-title="借书历史" class="table"  data-toggle="table" data-search="true" data-pagination="true">
+                    <table id="borrowTable" data-url="/logs/notReturn" data-show-refresh="true" data-title="借书历史" class="table"  data-toggle="table" data-search="true" data-pagination="true">
                         <thead >
                         <tr>
                             <th data-field="username" data-title="学号" ></th>
@@ -89,40 +89,29 @@
 <script th:inline="javascript">
   $(function () {
       initHtml();
-      initData();
       initEvent();
   });
-  function initData() {
-      $.ajax({
-          url: "/logs/notReturn",
-          data:{
-              userId: getCookie("id")
-          },
-          success: function (data) {
-              $('#borrowTable').bootstrapTable('load', data);
-              $('.fixed-table-loading').hide();
-          }
-      })
-  }
     function returnOperator(val, row) {
 
-        return '<span class="btn btn-primary" onclick="returnBook(' +row.bookId+ ') ">' + '还书' +'</span>';
+        return '<span class="btn btn-primary" onclick="returnBook(' +row.bookId+ ','+row.id +' ) ">' + '还书' +'</span>';
     }
     
-    function returnBook(bookId) {
-      console.log(bookId)
+    function returnBook(bookId, borrowId) {
+        console.log(bookId + " ," + borrowId)
        $.ajax({
             url: "/bookManager/return",
             type: "post",
             data:{
                 bookId: parseInt(bookId),
+                borrowId: parseInt(borrowId),
                 userId: parseInt(getCookie('id'))
             },
             success:function (data) {
-               if (data == success) {
-                   alertDialog("还书结果", "还书成功")
+               if (data == true) {
+                   alert("还书成功")
+                   $('#borrowTable').bootstrapTable('refresh');
                } else {
-                   alertDialog("还书结果", "还书失败")
+                   alert("还书失败")
 
                }
            }

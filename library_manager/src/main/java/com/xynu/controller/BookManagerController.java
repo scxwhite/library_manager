@@ -82,8 +82,8 @@ public class BookManagerController {
 
     @RequestMapping(value = "return", method = RequestMethod.POST)
     @ResponseBody
-    public boolean returnBook(Integer userId, Integer bookId){
-        return bookService.returnBook(userId, bookId);
+    public boolean returnBook(Integer userId, Integer bookId, Integer borrowId){
+        return bookService.returnBook(userId, bookId, borrowId);
     }
 
 

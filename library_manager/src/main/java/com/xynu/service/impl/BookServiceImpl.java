@@ -1,7 +1,8 @@
 package com.xynu.service.impl;
 
 import com.xynu.entity.Book;
-import com.xynu.entity.BookLogs;
+import com.xynu.entity.BorrowLogs;
+import com.xynu.entity.ReturnLogs;
 import com.xynu.mapper.BookMapper;
 import com.xynu.service.BookLogsService;
 import com.xynu.service.BookService;
@@ -85,11 +86,10 @@ public class BookServiceImpl implements BookService {
         //准备借书
         book.setStocks(book.getStocks() - 1);
         this.updateBook(book);
-        BookLogs bookLogs = new BookLogs();
-        bookLogs.setBookId(bookId);
-        bookLogs.setUserId(userId);
-        bookLogs.setOpType(0);
-        Integer x = bookLogsService.insertLog(bookLogs);
+        BorrowLogs borrowLogs = new BorrowLogs();
+        borrowLogs.setBookId(bookId);
+        borrowLogs.setUserId(userId);
+        Integer x = bookLogsService.insertBorrowLogs(borrowLogs);
         if (x == null || x == 0) {
             return false;
         }
@@ -98,17 +98,16 @@ public class BookServiceImpl implements BookService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public boolean returnBook(Integer userId, Integer bookId) {
+    public boolean returnBook(Integer userId, Integer bookId, Integer borrowId) {
 
         Book book = this.findBookById(bookId);
         //准备还书
         book.setStocks(book.getStocks() + 1);
         this.updateBook(book);
-        BookLogs bookLogs = new BookLogs();
-        bookLogs.setBookId(bookId);
-        bookLogs.setUserId(userId);
-        bookLogs.setOpType(1);
-        Integer x = bookLogsService.insertLog(bookLogs);
+        ReturnLogs returnLogs = new ReturnLogs();
+        returnLogs.setBorrowId(borrowId);
+        returnLogs.setUserId(userId);
+        Integer x = bookLogsService.insertReturnLogs(returnLogs);
         if (x == null || x == 0) {
             return false;
         }

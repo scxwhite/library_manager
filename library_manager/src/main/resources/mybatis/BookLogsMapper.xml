@@ -2,36 +2,55 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xynu.mapper.BookLogsMapper">
 
-    <resultMap id="logsMap" type="com.xynu.entity.BookLogs">
+    <resultMap id="borrowLogsMap" type="com.xynu.entity.BorrowLogs">
         <id column="id" property="id"/>
         <result column="user_id" property="userId"/>
         <result column="book_id" property="bookId"/>
-        <result column="op_type" property="opType"/>
         <result column="message" property="message"/>
         <result column="create_time" property="createTime"/>
     </resultMap>
-
+    <resultMap id="returnLogsMap" type="com.xynu.entity.ReturnLogs">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="borrow_id" property="borrowId"/>
+        <result column="message" property="message"/>
+        <result column="create_time" property="createTime"/>
+    </resultMap>
     <sql id="base_column_list">
-        id,user_id,book_id,op_type, message
+        id,user_id,book_id, message
     </sql>
     <sql id="base_table" >
-        book_logs
+        borrow_logs
     </sql>
 
 
-    <insert id="insertLog" parameterType="com.xynu.entity.BookLogs" >
+    <insert id="insertBorrowLogs" parameterType="com.xynu.entity.BorrowLogs" >
         INSERT INTO
         <include refid="base_table"/>
-        (user_id,book_id,op_type,message)
+        (user_id,book_id,message)
         values
-        (#{userId,jdbcType=INTEGER},#{bookId,jdbcType=INTEGER},#{opType,jdbcType=INTEGER},#{message,jdbcType=VARCHAR})
+        (#{userId,jdbcType=INTEGER},#{bookId,jdbcType=INTEGER},#{message,jdbcType=VARCHAR})
     </insert>
 
-    <select id="selectLogsByUserId" resultMap="logsMap">
+    <insert id="insertReturnLogs" parameterType="com.xynu.entity.BorrowLogs" >
+        INSERT INTO
+        return_logs
+        (borrow_id,message,user_id)
+        values
+        (#{borrowId,jdbcType=INTEGER},#{message,jdbcType=VARCHAR},#{userId,jdbcType=INTEGER})
+    </insert>
+
+    <select id="selectBorrowLogsByUserId" resultMap="borrowLogsMap">
         SELECT *
         FROM
-        book_logs
+        borrow_logs
         WHERE user_id = #{userId, jdbcType=INTEGER}
     </select>
 
+    <select id="selectReturnLogsByUserId" resultMap="returnLogsMap">
+        SELECT *
+        FROM
+        return_logs
+        WHERE user_id = #{userId, jdbcType=INTEGER}
+    </select>
 </mapper>

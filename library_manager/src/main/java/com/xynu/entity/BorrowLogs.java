@@ -10,12 +10,11 @@ import java.util.Date;
  * @date 2018/3/29
  */
 @Data
-public class BookLogs {
+public class BorrowLogs {
 
     private Integer id;
     private Integer userId;
     private Integer bookId;
-    private Integer opType;
     private String  message;
     private Date    createTime;
 }

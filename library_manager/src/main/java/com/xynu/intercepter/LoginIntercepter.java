@@ -1,6 +1,7 @@
 package com.xynu.intercepter;
 
 
+import com.xynu.util.RequestUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -29,16 +30,7 @@ public class LoginIntercepter extends HandlerInterceptorAdapter{
             return true;
         }
 
-        boolean hasLogin = false;
-        Cookie[] cookies = request.getCookies();
-        if (cookies != null && cookies.length > 0) {
-            for (Cookie cookie : cookies) {
-                if (StringUtils.equals(cookie.getName(),"username")) {
-                    hasLogin = true;
-                    break;
-                }
-            }
-        }
+        boolean hasLogin = StringUtils.isNotBlank(RequestUtils.getCookie("username", request));
 
         if (!hasLogin) {
             response.sendRedirect("/page/login");

@@ -1,6 +1,7 @@
 package com.xynu.mapper;
 
-import com.xynu.entity.BookLogs;
+import com.xynu.entity.BorrowLogs;
+import com.xynu.entity.ReturnLogs;
 
 import java.util.List;
 
@@ -12,7 +13,11 @@ public interface BookLogsMapper {
      * @param userId
      * @return
      */
-    List<BookLogs> selectLogsByUserId(Integer userId);
+    List<BorrowLogs> selectBorrowLogsByUserId(Integer userId);
 
-    Integer insertLog(BookLogs bookLogs);
+    List<ReturnLogs> selectReturnLogsByUserId(Integer userId);
+
+    Integer insertBorrowLogs(BorrowLogs borrowLogs);
+
+    Integer insertReturnLogs(ReturnLogs returnLogs);
 }

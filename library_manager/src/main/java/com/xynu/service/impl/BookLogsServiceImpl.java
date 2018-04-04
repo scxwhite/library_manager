@@ -1,7 +1,8 @@
 package com.xynu.service.impl;
 
 import com.xynu.entity.Book;
-import com.xynu.entity.BookLogs;
+import com.xynu.entity.BorrowLogs;
+import com.xynu.entity.ReturnLogs;
 import com.xynu.entity.User;
 import com.xynu.mapper.BookLogsMapper;
 import com.xynu.model.BookLogsVO;
@@ -13,10 +14,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
 @Service
 public class BookLogsServiceImpl implements BookLogsService {
 
@@ -29,15 +28,15 @@ public class BookLogsServiceImpl implements BookLogsService {
     private BookLogsMapper bookLogsMapper;
 
     @Override
-    public List<BookLogsVO> findLogsByUserId(Integer userId) {
-        List<BookLogs> bookLogs = bookLogsMapper.selectLogsByUserId(userId);
-        if (bookLogs == null ) {
+    public List<BookLogsVO> findBorrowLogsByUserId(Integer userId) {
+        List<BorrowLogs> borrowLogs = bookLogsMapper.selectBorrowLogsByUserId(userId);
+        if (borrowLogs == null ) {
             return new ArrayList<>(0);
         }
-        List<BookLogsVO> bookLogsVOS = new ArrayList<>(bookLogs.size());
+        List<BookLogsVO> bookLogsVOS = new ArrayList<>(borrowLogs.size());
         User user = userService.findUserById(userId);
         Map<Integer, String> bookNameCache = new HashMap<>();
-        bookLogs.forEach(x -> {
+        borrowLogs.forEach(x -> {
             BookLogsVO bookLogsVO = new BookLogsVO();
             BeanUtils.copyProperties(x, bookLogsVO);
             if (bookNameCache.get(x.getBookId()) != null) {
@@ -49,39 +48,45 @@ public class BookLogsServiceImpl implements BookLogsService {
             }
             bookLogsVO.setUsername(user.getUsername());
             bookLogsVO.setCreateTime(DateUtil.getStringDate(null, x.getCreateTime()));
-            bookLogsVO.setOpType(x.getOpType() == 1 ? "还书" : "借阅");
+            bookLogsVO.setOpType("借阅");
             bookLogsVOS.add(bookLogsVO);
         });
         return bookLogsVOS;
     }
 
     @Override
-    public Integer insertLog(BookLogs bookLogs) {
-        return bookLogsMapper.insertLog(bookLogs);
+    public List<ReturnLogs> findReturnLogsByUserId(Integer userId) {
+        return bookLogsMapper.selectReturnLogsByUserId(userId);
+    }
+
+    @Override
+    public Integer insertBorrowLogs(BorrowLogs borrowLogs) {
+        return bookLogsMapper.insertBorrowLogs(borrowLogs);
     }
 
 
     @Override
     public List<BookLogsVO> getNotReturnBooks(Integer userId) {
-        List<BookLogsVO> bookLogsVOS = this.findLogsByUserId(userId);
-        bookLogsVOS.sort((book1, book2) -> {
-            int x = book1.getCreateTime().compareTo(book2.getCreateTime());
-            return x;
-        });
-        List<BookLogsVO> borrowList = new ArrayList<>();
-        List<BookLogsVO> returnList = new ArrayList<>();
-        for (BookLogsVO bookLogsVO : bookLogsVOS) {
-            if (bookLogsVO.getOpType().equals("借阅")){
-                borrowList.add(bookLogsVO);
-            } else {
-                returnList.add(bookLogsVO);
+        List<BookLogsVO> bookLogsVOS = this.findBorrowLogsByUserId(userId);
+        List<ReturnLogs> returnLogs = this.findReturnLogsByUserId(userId);
+        Set<BookLogsVO> voSet = new HashSet<>();
+        int size = bookLogsVOS.size();
+        returnLogs.forEach(returnLog -> {
+            for (int i = 0; i< size; i++) {
+                BookLogsVO bookLogsVO = bookLogsVOS.get(i);
+                if (Objects.equals(bookLogsVO.getId(), returnLog.getBorrowId())) {
+                    voSet.add(bookLogsVO);
+                }
             }
-        }
-        returnList.forEach(bookLogsVO -> {
-            borrowList.remove(bookLogsVO);
         });
+        voSet.forEach(vo ->  bookLogsVOS.remove(vo));
 
-        return borrowList;
+        return bookLogsVOS;
+    }
+
+    @Override
+    public Integer insertReturnLogs(ReturnLogs returnLogs) {
+        return bookLogsMapper.insertReturnLogs(returnLogs);
     }
 
 }

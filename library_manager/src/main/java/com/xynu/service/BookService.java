@@ -24,5 +24,5 @@ public interface BookService {
 
     boolean borrowBook (Integer userId, Integer bookId);
 
-    boolean returnBook(Integer userId, Integer bookId);
+    boolean returnBook(Integer userId, Integer bookId, Integer borrowId);
 }

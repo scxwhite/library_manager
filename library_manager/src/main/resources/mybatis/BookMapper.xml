@@ -131,7 +131,7 @@
                 introduce=#{introduce,jdbcType=INTEGER},
             </if>
             <if test="stocks != null">
-                number=#{stocks,jdbcType=INTEGER},
+                stocks=#{stocks,jdbcType=INTEGER},
             </if>
 
         </trim>
