@@ -7,11 +7,12 @@
         <result column="password" property="password" jdbcType="VARCHAR"/>
         <result column="info" property="info" jdbcType="INTEGER"/>
         <result column="is_valid" property="isValid" jdbcType="INTEGER"/>
+        <result column="sex" property="sex" jdbcType="INTEGER"/>
     </resultMap>
 
 
     <sql id="base_column_list">
-        id,username,password,info, is_valid
+        id,username,password,info, is_valid,sex
     </sql>
     <sql id="base_table" >
         user

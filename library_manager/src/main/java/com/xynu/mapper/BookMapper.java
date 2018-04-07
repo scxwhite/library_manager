@@ -2,7 +2,7 @@ package com.xynu.mapper;
 
 
 import com.xynu.entity.Book;
-import com.xynu.model.BookVO;
+import com.xynu.model.Status;
 
 import java.util.List;
 
@@ -29,5 +29,7 @@ public interface BookMapper {
     List<Book> selectCanBorrowBooks ();
 
     Integer borrowBook ();
+
+    List<Status> selectBookTypeStatus();
 
 }

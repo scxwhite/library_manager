@@ -2,6 +2,7 @@ package com.xynu.controller;
 
 import com.xynu.entity.Book;
 import com.xynu.entity.BookType;
+import com.xynu.model.Status;
 import com.xynu.service.BookService;
 import com.xynu.service.BookTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,6 +85,12 @@ public class BookManagerController {
     @ResponseBody
     public boolean returnBook(Integer userId, Integer bookId, Integer borrowId){
         return bookService.returnBook(userId, bookId, borrowId);
+    }
+
+    @RequestMapping(value = "bookTypeStatus", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Status> bookTypeStatus(){
+        return bookService.bookTypeStatus();
     }
 
 

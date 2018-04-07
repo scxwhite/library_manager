@@ -1,6 +1,7 @@
 package com.xynu.controller;
 
 import com.xynu.model.BookLogsVO;
+import com.xynu.model.Status;
 import com.xynu.service.BookLogsService;
 import com.xynu.util.RequestUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -39,5 +41,19 @@ public class BookLogsController {
             return null;
         }
         return bookLogsService.getNotReturnBooks(Integer.parseInt(userId));
+    }
+
+
+    @RequestMapping("borrowUserSex")
+    @ResponseBody
+    public List<Status> borrowUserSex() {
+        return bookLogsService.borrowUserSex();
+    }
+
+
+    @RequestMapping("logsInWeek")
+    @ResponseBody
+    public Map logsInWeek() {
+        return bookLogsService.logsInWeek();
     }
 }

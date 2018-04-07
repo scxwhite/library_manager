@@ -16,6 +16,11 @@
         <result column="message" property="message"/>
         <result column="create_time" property="createTime"/>
     </resultMap>
+
+    <resultMap id="StatusMap" type="com.xynu.model.Status">
+        <result column="status" property="status"/>
+        <result column="num" property="num"/>
+    </resultMap>
     <sql id="base_column_list">
         id,user_id,book_id, message
     </sql>
@@ -52,5 +57,45 @@
         FROM
         return_logs
         WHERE user_id = #{userId, jdbcType=INTEGER}
+    </select>
+    
+    <select id="selectBorrowPeopleType" resultMap="StatusMap">
+        select count(*) num,if(user.sex = 0, '男', '女') status
+        from borrow_logs left join user
+        on user.id = borrow_logs.user_id
+        group by user.sex
+
+    </select>
+
+    <select id="borrowLogsInWeek" resultMap="StatusMap">
+        select count(1) as num ,create_date as status
+        from
+        (
+        select
+        left(blog.create_time,10) as create_date
+        from
+        borrow_logs blog
+        where
+        <![CDATA[
+        DATE_SUB(CURDATE(), INTERVAL 6 DAY) <=left(create_time,10)
+        ]]>
+        ) t group by create_date
+
+    </select>
+
+
+    <select id="returnLogsInWeek" resultMap="StatusMap">
+        select count(1) as num,create_date as status
+        from
+        (
+        select
+        left(r.create_time,10) as create_date
+        from
+        return_logs r
+        where
+        <![CDATA[
+        DATE_SUB(CURDATE(), INTERVAL 6 DAY) <=left(create_time,10)
+        ]]>
+        ) t group by create_date
     </select>
 </mapper>

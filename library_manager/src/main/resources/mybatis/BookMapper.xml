@@ -14,6 +14,10 @@
         <result column="url" property="url"/>
         <result column="introduce" property="introduce"/>
     </resultMap>
+    <resultMap id="BookTypeStatusMap" type="com.xynu.model.Status">
+        <result column="status" property="status"/>
+        <result column="num" property="num"/>
+    </resultMap>
     <sql id="base_column_list">
         book_id,type_id,title,publish, publish_year, author,price,number,stocks,url,introduce
     </sql>
@@ -163,5 +167,11 @@
         WHERE
         WHERE book_id=#{id, jdbcType=INTEGER}
     </update>
-
+    <select id="selectBookTypeStatus" resultMap="BookTypeStatusMap" >
+        select
+        count(*) num, book_type.type_name status
+        from book left join book_type
+        on book.type_id = book_type.type_id
+        group by book_type.type_id
+    </select>
 </mapper>

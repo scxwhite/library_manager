@@ -4,6 +4,7 @@ import com.xynu.entity.Book;
 import com.xynu.entity.BorrowLogs;
 import com.xynu.entity.ReturnLogs;
 import com.xynu.mapper.BookMapper;
+import com.xynu.model.Status;
 import com.xynu.service.BookLogsService;
 import com.xynu.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -112,5 +113,10 @@ public class BookServiceImpl implements BookService {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public List<Status> bookTypeStatus() {
+        return bookMapper.selectBookTypeStatus();
     }
 }

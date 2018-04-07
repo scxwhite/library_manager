@@ -8,365 +8,272 @@
     <link th:href="@{${#httpServletRequest.getContextPath()} + '/css/bootstrap.min.css'}" rel="stylesheet">
     <link th:href="@{${#httpServletRequest.getContextPath()} + '/css/bootstrap-responsive.min.css'}" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600"
-        rel="stylesheet">
+          rel="stylesheet">
     <link th:href="@{${#httpServletRequest.getContextPath()} + '/css/font-awesome.css'}" rel="stylesheet">
     <link th:href="@{${#httpServletRequest.getContextPath()} + '/css/style.css'}" rel="stylesheet">
-    
+
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 </head>
 <body>
-    <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container">
-                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
-                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-                </a><a class="brand" href="index.html">Bootstrap Admin Template </a>
-                <div class="nav-collapse">
-                    <ul class="nav pull-right">
-                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                            class="icon-cog"></i> Account <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="javascript:;">Settings</a></li>
-                                <li><a href="javascript:;">Help</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown"><a href="#" id="username" class="dropdown-toggle" data-toggle="dropdown"><i
-                                class="icon-user"></i> username <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="javascript:;" id="info">个人信息</a></li>
-                                <li><a href="javascript:;" id="exit">退出</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <form class="navbar-search pull-right">
-                    <input type="text" class="search-query" placeholder="Search">
-                    </form>
+
+<div th:include="child :: #head"/>
+<div th:include="child :: #menu"/>
+<!-- /subnavbar -->
+<div class="main">
+    <div class="main-inner">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <!-- /widget -->
+                    <div class="widget">
+                        <div class="widget-header">
+                            <i class="icon-bar-chart"></i>
+                            <h3>
+                                最近一周借书状态</h3>
+                        </div>
+                        <!-- /widget-header -->
+                        <div class="widget-content">
+                            <div id="borrow-return" class="chart-holder" width="538" height="250">
+                            </div>
+                            <!-- /pie-chart -->
+                        </div>
+                        <!-- /widget-content -->
+                    </div>
+                    <!-- /widget -->
                 </div>
-                <!--/.nav-collapse -->
-            </div>
-            <!-- /container -->
-        </div>
-        <!-- /navbar-inner -->
-    </div>
-    <!-- /navbar -->
-    <div class="subnavbar">
-        <div class="subnavbar-inner">
-            <div class="container">
-                <ul class="mainnav">
-                    <li><a th:href="@{/page/index}"><i class="icon-dashboard"></i><span>Dashboard</span> </a> </li>
-                    <li><a th:href="@{/page/reports}"><i class="icon-list-alt"></i><span>Reports</span> </a> </li>
-                    <li><a th:href="@{/page/guidely}"><i class="icon-facetime-video"></i><span>App Tour</span> </a></li>
-                    <li class="active"><a th:href="@{/page/charts}"><i class="icon-bar-chart"></i><span>Charts</span> </a> </li>
-                    <li><a th:href="@{/page/shortcodes}"><i class="icon-code"></i><span>Shortcodes</span> </a> </li>
-                    <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-long-arrow-down"></i><span>Drops</span> <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a th:href="@{/page/icons}">Icons</a></li>
-                            <li><a th:href="@{/page/faq}">FAQ</a></li>
-                            <li><a th:href="@{/page/pricing}">Pricing Plans</a></li>
-                            <li><a th:href="@{/page/login}">Login</a></li>
-                            <li><a th:href="@{/page/signup}">Signup</a></li>
-                            <li><a th:href="@{/page/error}">404</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <!-- /container -->
-        </div>
-        <!-- /subnavbar-inner -->
-    </div>
-    <!-- /subnavbar -->
-    <div class="main">
-        <div class="main-inner">
-            <div class="container">
-                <div class="row">
-                    <div class="span6">
-                        <div class="widget">
-                            <div class="widget-header">
-                                <i class="icon-bar-chart"></i>
-                                <h3>
-                                    Bar Chart</h3>
-                            </div>
-                            <!-- /widget-header -->
-                            <div class="widget-content">
-                                <canvas id="bar-chart" class="chart-holder" width="538" height="250">
-                                </canvas>
-                                <!-- /bar-chart -->
-                            </div>
-                            <!-- /widget-content -->
+                <div class="span6">
+                    <div class="widget">
+                        <div class="widget-header">
+                            <i class="icon-bar-chart"></i>
+                            <h3>
+                                图书分类预览</h3>
                         </div>
-                        <!-- /widget -->
-                        <div class="widget">
-                            <div class="widget-header">
-                                <i class="icon-bar-chart"></i>
-                                <h3>
-                                    Line Chart</h3>
+                        <!-- /widget-header -->
+                        <div class="widget-content">
+                            <div id="book-type" class="chart-holder" width="538" height="350">
                             </div>
-                            <!-- /widget-header -->
-                            <div class="widget-content">
-                                <canvas id="area-chart" class="chart-holder" width="538" height="250">
-                                </canvas>
-                                <!-- /line-chart -->
-                            </div>
-                            <!-- /widget-content -->
+                            <!-- /bar-chart -->
                         </div>
-                        <!-- /widget -->
-                        <div class="widget">
-                            <div class="widget-header">
-                                <i class="icon-bar-chart"></i>
-                                <h3>
-                                    Pie Chart</h3>
-                            </div>
-                            <!-- /widget-header -->
-                            <div class="widget-content">
-                                <canvas id="pie-chart" class="chart-holder" width="538" height="250">
-                                </canvas>
-                                <!-- /pie-chart -->
-                            </div>
-                            <!-- /widget-content -->
-                        </div>
-                        <!-- /widget -->
+                        <!-- /widget-content -->
                     </div>
-                    <!-- /span6 -->
-                    <div class="span6">
-                        <div class="widget">
-                            <div class="widget-header">
-                                <i class="icon-bar-chart"></i>
-                                <h3>
-                                    Donut Chart</h3>
-                            </div>
-                            <!-- /widget-header -->
-                            <div class="widget-content">
-                                <canvas id="donut-chart" class="chart-holder" width="538" height="250">
-                                </canvas>
-                                <!-- /bar-chart -->
-                            </div>
-                            <!-- /widget-content -->
-                        </div>
-                        <!-- /widget -->
-                        <div class="widget">
-                            <div class="widget-header">
-                                <i class="icon-bar-chart"></i>
-                                <h3>
-                                    A Chart</h3>
-                            </div>
-                            <!-- /widget-header -->
-                            <div class="widget-content">
-                                <canvas id="line-chart" class="chart-holder" width="538" height="250">
-                                </canvas>
-                                <!-- /-chart -->
-                            </div>
-                            <!-- /widget-content -->
-                        </div>
-                        <!-- /widget -->
-                    </div>
-                    <!-- /span6 -->
                 </div>
-                <!-- /row -->
-            </div>
-            <!-- /container -->
-        </div>
-        <!-- /main-inner -->
-    </div>
-    <!-- /main -->
-    <div class="extra">
-        <div class="extra-inner">
-            <div class="container">
-                <div class="row">
-                    <div class="span3">
-                        <h4>
-                            About Free Admin Template</h4>
-                        <ul>
-                            <li><a href="javascript:;">by EGrappler</a></li>
-                            <li><a href="javascript:;">Web Development Resources</a></li>
-                            <li><a href="javascript:;">Responsive HTML5 Portfolio Templates</a></li>
-                            <li><a href="javascript:;">Free Resources and Scripts</a></li>
-                        </ul>
+                <div class="span6">
+                    <!-- /widget -->
+                    <div class="widget">
+                        <div class="widget-header">
+                            <i class="icon-bar-chart"></i>
+                            <h3>
+                                借阅者分类</h3>
+                        </div>
+                        <!-- /widget-header -->
+                        <div class="widget-content">
+                            <div id="sex-type" class="chart-holder" width="538" height="250">
+                            </div>
+                            <!-- /line-chart -->
+                        </div>
+                        <!-- /widget-content -->
                     </div>
-                    <!-- /span3 -->
-                    <div class="span3">
-                        <h4>
-                            Support</h4>
-                        <ul>
-                            <li><a href="javascript:;">Frequently Asked Questions</a></li>
-                            <li><a href="javascript:;">Ask a Question</a></li>
-                            <li><a href="javascript:;">Video Tutorial</a></li>
-                            <li><a href="javascript:;">Feedback</a></li>
-                        </ul>
-                    </div>
-                    <!-- /span3 -->
-                    <div class="span3">
-                        <h4>
-                            Something Legal</h4>
-                        <ul>
-                            <li><a href="javascript:;">Read License</a></li>
-                            <li><a href="javascript:;">Terms of Use</a></li>
-                            <li><a href="javascript:;">Privacy Policy</a></li>
-                        </ul>
-                    </div>
-                    <!-- /span3 -->
-                    <div class="span3">
-                        <h4>
-                            Open Source jQuery Plugins</h4>
-                        <ul>
-                            <li><a href="#">Open Source jQuery Plugins</a></li>
-                            <li><a href="#">HTML5 Responsive Tempaltes</a></li>
-                            <li><a href="#">Free Contact Form Plugin</a></li>
-                            <li><a href="#">Flat UI PSD</a></li>
-                        </ul>
-                    </div>
-                    <!-- /span3 -->
                 </div>
-                <!-- /row -->
+
+                <!-- /span6 -->
+                <!-- /span6 -->
             </div>
-            <!-- /container -->
+
+            <!-- /row -->
         </div>
-        <!-- /extra-inner -->
+        <!-- /container -->
     </div>
-    <!-- /extra -->
-    <div class="footer">
-        <div class="footer-inner">
-            <div class="container">
-                <div class="row">
-                    <div class="span12">
-                        &copy; 2013 <a href="#">Bootstrap Responsive Admin Template</a>.
-                    </div>
-                    <!-- /span12 -->
-                </div>
-                <!-- /row -->
-            </div>
-            <!-- /container -->
-        </div>
-        <!-- /footer-inner -->
-    </div>
-    <!-- /footer -->
-    <!-- Le javascript
-================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/jquery-1.7.2.min.js'}"></script>
-    <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/excanvas.min.js'}"></script>
-    <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/chart.min.js'}" type="text/javascript"></script>
-    <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/bootstrap.js'}"></script>
-    <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/base.js'}"></script>
-    <script th:src="@{${#httpServletRequest.getContextPath()} + '/js/setting.js'}"></script>
-    <script>
-        var doughnutData = [
-				{
-				    value: 30,
-				    color: "#F7464A"
-				},
-				{
-				    value: 50,
-				    color: "#46BFBD"
-				},
-				{
-				    value: 100,
-				    color: "#FDB45C"
-				},
-				{
-				    value: 40,
-				    color: "#949FB1"
-				},
-				{
-				    value: 120,
-				    color: "#4D5360"
-				}
+    <!-- /main-inner -->
+</div>
+<div th:include="child :: #footer"/>
+<script th:src="@{${#httpServletRequest.getContextPath()} + '/js/jquery-1.7.2.min.js'}"></script>
+<script th:src="@{${#httpServletRequest.getContextPath()} + '/js/echarts.js'}" type="text/javascript"></script>
+<script th:src="@{${#httpServletRequest.getContextPath()} + '/js/macarons.js'}"></script>
 
-			];
+<script th:src="@{${#httpServletRequest.getContextPath()} + '/js/bootstrap.js'}"></script>
+<script th:src="@{${#httpServletRequest.getContextPath()} + '/js/base.js'}"></script>
+<script th:src="@{${#httpServletRequest.getContextPath()} + '/js/setting.js'}"></script>
+<script>
+    $(function () {
+        initData();
+        initHtml();
+    });
+    //初始图书分类
+    function initPieChart(title, name, id, status) {
+        var pieOption = {
+            title : {
+                text: title,
+                subtext: getNowFormatDate(0),
+                x:'center'
+            },
+            tooltip : {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+                data: []
+            },
+            series : [
+                {
+                    name: name,
+                    type: 'pie',
+                    radius : '65%',
+                    center: ['50%', '50%'],
+                    minAngle: 3,
+                    startAngle: 60,
+                    data:[]
+                }
+            ]
+        };
+        var legend = new Array();
+        status.forEach(function (sta, index) {
+            legend[index] = sta.status;
+            pieOption.series[0].data[index] = new pieRow(sta.status, sta.num)
 
-        var myDoughnut = new Chart(document.getElementById("donut-chart").getContext("2d")).Doughnut(doughnutData);
+        });
+        pieOption.legend.data = legend;
+        var myChart = echarts.init(document.getElementById(id), 'macarons');
+        myChart.setOption(pieOption);
+    }
 
+    // 最近一周借还书量对比
+     function borrowLogsInWeek(data) {
+        var lineOption = {
+            title: {
+                text: "最近一周借/还书对比"
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data:['借阅','还书']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
 
-        var lineChartData = {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
-            datasets: [
-				{
-				    fillColor: "rgba(220,220,220,0.5)",
-				    strokeColor: "rgba(220,220,220,1)",
-				    pointColor: "rgba(220,220,220,1)",
-				    pointStrokeColor: "#fff",
-				    data: [65, 59, 90, 81, 56, 55, 40]
-				},
-				{
-				    fillColor: "rgba(151,187,205,0.5)",
-				    strokeColor: "rgba(151,187,205,1)",
-				    pointColor: "rgba(151,187,205,1)",
-				    pointStrokeColor: "#fff",
-				    data: [28, 48, 40, 19, 96, 27, 100]
-				}
-			]
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['周一','周二','周三','周四','周五','周六','周日']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+                {
+                    name:'借阅',
+                    type:'line',
+                    stack: '总量',
+                    data:[]
+                },
+                {
+                    name:'还书',
+                    type:'line',
+                    stack: '总量',
+                    data:[]
+                }
+            ]
+        };
+        var dateToWeek = data.dateToWeek;
+        var borrowList = data.borrow;
+        var returnList = data.return;
+        var legend = data.legend;
+        legend.forEach(function (date, index) {
+            lineOption.xAxis.data[index] = dateToWeek[date];
+            var find = false;
+            borrowList.forEach(function (val) {
+                if (val.status == date) {
+                    lineOption.series[0].data[index] = val.num;
+                    find = true;
+                }
+            });
+            if (find == false) {
+                lineOption.series[0].data[index] = 0;
+            } else {
+                find = false;
+            }
 
+            returnList.forEach(function (val) {
+                if (val.status == date) {
+                    lineOption.series[1].data[index] = val.num;
+                    find = true;
+                }
+
+            });
+
+            if (find == false) {
+                lineOption.series[1].data[index] = 0;
+            }
+        });
+        console.log(lineOption)
+        var myChart = echarts.init(document.getElementById('borrow-return'), 'macarons');
+        myChart.setOption(lineOption);
+
+    }
+    
+    function initData() {
+
+        $.ajax({
+            url: "/bookManager/bookTypeStatus",
+            type: "get",
+            success: function (data) {
+                initPieChart("图书总分类", "占比", "book-type",data);
+            }
+        })
+
+        $.ajax({
+            url: "/logs/borrowUserSex",
+            type: "get",
+            success: function (data) {
+                initPieChart("借阅性别分类", "占比", "sex-type", data);
+            }
+        })
+        $.ajax({
+            url: "/logs/logsInWeek",
+            type: "get",
+            success: function (data) {
+                borrowLogsInWeek(data);
+            }
+        })
+    }
+
+    /**
+     * 初始化class
+     */
+    function initHtml() {
+        $('#charts').addClass("active");
+    }
+
+    function getNowFormatDate(subDays) {
+        var date = new Date();
+        date.setDate(date.getDate() + subDays);
+        var seperator1 = "-";
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var strDate = date.getDate();
+        if (month >= 1 && month <= 9) {
+            month = "0" + month;
         }
-
-        var myLine = new Chart(document.getElementById("area-chart").getContext("2d")).Line(lineChartData);
-
-
-        var barChartData = {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
-            datasets: [
-				{
-				    fillColor: "rgba(220,220,220,0.5)",
-				    strokeColor: "rgba(220,220,220,1)",
-				    data: [65, 59, 90, 81, 56, 55, 40]
-				},
-				{
-				    fillColor: "rgba(151,187,205,0.5)",
-				    strokeColor: "rgba(151,187,205,1)",
-				    data: [28, 48, 40, 19, 96, 27, 100]
-				}
-			]
-
+        if (strDate >= 0 && strDate <= 9) {
+            strDate = "0" + strDate;
         }
+        var currentdate = year + seperator1 + month + seperator1 + strDate;
+        return currentdate;
+    }
 
-var myLine = new Chart(document.getElementById("bar-chart").getContext("2d")).Bar(barChartData);
-
-var pieData = [
-				{
-				    value: 30,
-				    color: "#F38630"
-				},
-				{
-				    value: 50,
-				    color: "#E0E4CC"
-				},
-				{
-				    value: 100,
-				    color: "#69D2E7"
-				}
-
-			];
-
-				var myPie = new Chart(document.getElementById("pie-chart").getContext("2d")).Pie(pieData);
-
-				var chartData = [
-			{
-			    value: Math.random(),
-			    color: "#D97041"
-			},
-			{
-			    value: Math.random(),
-			    color: "#C7604C"
-			},
-			{
-			    value: Math.random(),
-			    color: "#21323D"
-			},
-			{
-			    value: Math.random(),
-			    color: "#9D9B7F"
-			},
-			{
-			    value: Math.random(),
-			    color: "#7D4F6D"
-			},
-			{
-			    value: Math.random(),
-			    color: "#584A5E"
-			}
-		];
-				var myPolarArea = new Chart(document.getElementById("line-chart").getContext("2d")).PolarArea(chartData);
-	</script>
+    function pieRow(name,value) {
+        this.value = value;
+        this.name = name;
+    }
+</script>
 </body>
 </html>

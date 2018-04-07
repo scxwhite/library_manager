@@ -2,6 +2,7 @@ package com.xynu.mapper;
 
 import com.xynu.entity.BorrowLogs;
 import com.xynu.entity.ReturnLogs;
+import com.xynu.model.Status;
 
 import java.util.List;
 
@@ -20,4 +21,11 @@ public interface BookLogsMapper {
     Integer insertBorrowLogs(BorrowLogs borrowLogs);
 
     Integer insertReturnLogs(ReturnLogs returnLogs);
+
+    List<Status> selectBorrowPeopleType();
+
+    List<Status> borrowLogsInWeek();
+
+    List<Status> returnLogsInWeek();
+
 }

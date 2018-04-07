@@ -6,6 +6,7 @@ import com.xynu.entity.ReturnLogs;
 import com.xynu.entity.User;
 import com.xynu.mapper.BookLogsMapper;
 import com.xynu.model.BookLogsVO;
+import com.xynu.model.Status;
 import com.xynu.service.BookService;
 import com.xynu.service.BookLogsService;
 import com.xynu.service.UserService;
@@ -109,9 +110,53 @@ public class BookLogsServiceImpl implements BookLogsService {
             });
         });
         bookLogsVOS.addAll(returnBooks);
-        bookLogsVOS.sort((x, y) -> x.getCreateTime().compareTo(y.getCreateTime()));
+        bookLogsVOS.sort((x, y) -> -x.getCreateTime().compareTo(y.getCreateTime()));
 
         return bookLogsVOS;
+    }
+
+    @Override
+    public List<Status> borrowUserSex() {
+        return bookLogsMapper.selectBorrowPeopleType();
+    }
+
+    @Override
+    public Map logsInWeek() {
+        List<Status> borrowLogs = bookLogsMapper.borrowLogsInWeek();
+        List<Status> returnLogs = bookLogsMapper.returnLogsInWeek();
+        List<String> dateList = new ArrayList<>(7);
+        Map<String, String> dateToWeek = new HashMap<>(7);
+        Calendar startDate = Calendar.getInstance();
+        Calendar endDate = Calendar.getInstance();
+        startDate.add(Calendar.DAY_OF_YEAR, -6);
+        String curDate;
+        while(startDate.compareTo(endDate) <= 0) {
+            curDate = DateUtil.getStringDate("yyyy-MM-dd", startDate.getTime());
+            dateList.add(curDate);
+            dateToWeek.put(curDate ,getWeekOfDate(startDate));
+            startDate.add(Calendar.DAY_OF_YEAR, 1);
+        }
+        Map<String, Object> res = new HashMap<>(3);
+        if (borrowLogs != null) {
+            res.put("borrow", borrowLogs);
+        }
+        if (returnLogs != null) {
+            res.put("return", returnLogs);
+
+        }
+        res.put("legend", dateList);
+        res.put("dateToWeek", dateToWeek);
+
+        return res;
+    }
+
+    private String getWeekOfDate(Calendar calendar) {
+        String [] weeks = {"星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"};
+        int t = calendar.get(Calendar.DAY_OF_WEEK) - 1;
+        if (t < 0) {
+            t = 0;
+        }
+        return weeks[t];
     }
 
 }

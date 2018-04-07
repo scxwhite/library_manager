@@ -22,5 +22,6 @@ public class User {
     private Integer info;
 
     private Integer isValid;
+    private Integer sex;
 
 }
