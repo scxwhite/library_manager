@@ -7,11 +7,8 @@
         <div class="subnavbar-inner" >
             <div class="container">
                 <ul class="mainnav">
-                    <li id="index"><a th:href="@{/page/model/index}"><i class="icon-dashboard"></i><span>Dashboard</span> </a> </li>
-                    <li><a th:href="@{/page/reports}"><i class="icon-list-alt"></i><span>Reports</span> </a> </li>
-                    <li><a th:href="@{/page/guidely}"><i class="icon-facetime-video"></i><span>App Tour</span> </a></li>
-                    <li id="charts"><a th:href="@{/page/charts}"><i class="icon-bar-chart"></i><span>Charts</span> </a> </li>
-                    <li><a th:href="@{/page/shortcodes}"><i class="icon-code"></i><span>Shortcodes</span> </a></li>
+                    <li id="index"><a th:href="@{/page/model/index}"><i class="icon-dashboard"></i><span>首页</span> </a> </li>
+                    <li id="charts"><a th:href="@{/page/charts}"><i class="icon-bar-chart"></i><span>借阅分析</span> </a> </li>
                     <li id="borrow"><a th:href="@{/page/model/borrow}"><i class="icon-bookmark-empty"></i><span>借阅</span> </a></li>
                     <li id="return"><a th:href="@{/page/return}"><i class="icon-bookmark"></i><span>还书</span> </a></li>
                     <li id="userManager" th:each="cookie :${#httpServletRequest.getCookies()}"
