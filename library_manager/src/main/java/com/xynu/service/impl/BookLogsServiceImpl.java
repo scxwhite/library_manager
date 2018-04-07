@@ -89,4 +89,29 @@ public class BookLogsServiceImpl implements BookLogsService {
         return bookLogsMapper.insertReturnLogs(returnLogs);
     }
 
+    @Override
+    public List<BookLogsVO> fincLogsByUserId(Integer userId) {
+        List<BookLogsVO> bookLogsVOS = this.findBorrowLogsByUserId(userId);
+        List<ReturnLogs> returnLogs = this.findReturnLogsByUserId(userId);
+        List<BookLogsVO> returnBooks = new ArrayList<>(returnLogs.size());
+        User user = userService.findUserById(userId);
+        String username = user.getUsername();
+        returnLogs.forEach(x -> {
+            bookLogsVOS.forEach(y -> {
+                if (Objects.equals(x.getBorrowId(), y.getId())) {
+                    BookLogsVO bookLogsVO = new BookLogsVO();
+                    bookLogsVO.setBookName(y.getBookName());
+                    bookLogsVO.setOpType("还书");
+                    bookLogsVO.setUsername(username);
+                    bookLogsVO.setCreateTime(DateUtil.getStringDate("yyyy-MM-dd HH:mm:ss", x.getCreateTime()));
+                    returnBooks.add(bookLogsVO);
+                }
+            });
+        });
+        bookLogsVOS.addAll(returnBooks);
+        bookLogsVOS.sort((x, y) -> x.getCreateTime().compareTo(y.getCreateTime()));
+
+        return bookLogsVOS;
+    }
+
 }

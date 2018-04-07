@@ -27,7 +27,7 @@ public class BookLogsController {
     @RequestMapping("find")
     @ResponseBody
     public List<BookLogsVO> findLogsByUserId(Integer userId) {
-        return bookLogsService.findBorrowLogsByUserId(userId);
+        return bookLogsService.fincLogsByUserId(userId);
     }
 
 

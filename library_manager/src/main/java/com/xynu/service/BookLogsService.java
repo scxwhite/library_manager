@@ -19,4 +19,6 @@ public interface BookLogsService {
     List<BookLogsVO> getNotReturnBooks(Integer userId);
 
     Integer insertReturnLogs(ReturnLogs returnLogs);
+
+    List<BookLogsVO> fincLogsByUserId(Integer userId);
 }
