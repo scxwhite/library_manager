@@ -23,6 +23,6 @@ public class WebApplication {
 
 	@RequestMapping("/")
 	public String login() {
-		return "redirect:page/login";
+		return "redirect:page/model/index";
 	}
 }

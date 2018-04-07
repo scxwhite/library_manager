@@ -119,4 +119,9 @@ public class BookServiceImpl implements BookService {
     public List<Status> bookTypeStatus() {
         return bookMapper.selectBookTypeStatus();
     }
+
+    @Override
+    public List<Book> selectNewBook() {
+        return bookMapper.selectNewBook();
+    }
 }

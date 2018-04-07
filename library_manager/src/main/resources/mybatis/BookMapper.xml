@@ -174,4 +174,15 @@
         on book.type_id = book_type.type_id
         group by book_type.type_id
     </select>
+
+    <select id="selectNewBook" resultMap="BaseResultMap">
+        SELECT
+        title,url,author
+        FROM
+        <include refid="base_table"/>
+        order by
+        create_time
+        desc
+        limit 5
+    </select>
 </mapper>

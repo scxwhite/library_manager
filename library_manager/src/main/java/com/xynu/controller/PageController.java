@@ -20,7 +20,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/page/")
-public class IndexController {
+public class PageController {
 
     @Autowired
     private BookService bookService;
@@ -42,7 +42,6 @@ public class IndexController {
     @RequestMapping("model/borrow")
     public ModelAndView toBorrow() {
         ModelAndView modelAndView = new ModelAndView("borrow");
-        //TODO  分页
         List<Book> allBook = bookService.findCanBorrowBooks();
         if (allBook != null) {
             modelAndView.addObject("books", allBook);
@@ -62,6 +61,14 @@ public class IndexController {
         }
 
         modelAndView.addObject("book", bookVO);
+        return modelAndView;
+    }
+
+    @RequestMapping("model/index")
+    public ModelAndView toIndex() {
+        List<Book> bookList = bookService.selectNewBook();
+        ModelAndView modelAndView = new ModelAndView("index");
+        modelAndView.addObject("books", bookList);
         return modelAndView;
     }
 }

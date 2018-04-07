@@ -29,4 +29,5 @@ public interface BookService {
 
     List<Status> bookTypeStatus();
 
+    List<Book> selectNewBook();
 }

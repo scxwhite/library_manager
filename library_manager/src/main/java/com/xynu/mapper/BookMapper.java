@@ -32,4 +32,5 @@ public interface BookMapper {
 
     List<Status> selectBookTypeStatus();
 
+    List<Book> selectNewBook();
 }
