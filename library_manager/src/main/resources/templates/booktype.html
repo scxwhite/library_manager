@@ -87,6 +87,7 @@
     function initEvent() {
         $('#addBookTypeBtn').on('click', function () {
             $('#title').text("添加类型");
+            $('#id').val(null);
             $('#edit-bookType')[0].reset();
             $('#addBookType').modal('show');
         });

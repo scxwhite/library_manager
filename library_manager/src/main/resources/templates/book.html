@@ -142,6 +142,7 @@
       $('#addBookBtn').on('click', function () {
           $('#title').text("添加书籍");
           $('#edit-book')[0].reset();
+          $('#id').val(null);
           $('#addBook').modal('show');
       });
       $('#uploadBook').on('click', function () {
