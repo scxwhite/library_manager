@@ -137,6 +137,7 @@
   function initEvent() {
       $('#addUserBtn').on('click', function () {
           $('#userTitle').text("添加用户");
+          $('#id').val(null);
           $('#edit-user')[0].reset();
           $('#addUser').modal('show');
       });

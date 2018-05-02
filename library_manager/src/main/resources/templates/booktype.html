@@ -93,12 +93,15 @@
 
         $('#uploadBookType').on('click', function () {
             var id = $('#id').val();
-            var url;
+            var url, msg;
             //新增操作
             if (id == "" || id == null || id == undefined) {
                 url = "/bookManager/addBookType";
+                msg = "添加";
             } else {//更新操作
                 url = "/bookManager/updateBookType";
+                msg = "更新";
+
             }
             $.ajax({
                 url: url,
@@ -106,11 +109,11 @@
                 data: $('#edit-bookType').serialize(),
                 success: function (data) {
                     if (data == true) {
-                        alert("添加成功");
+                        alert(msg + "成功");
                         $('#addBookType').modal('hide');
                         $('#bookTypeTable').bootstrapTable('refresh');
                     } else {
-                        alert("添加失败");6
+                        alert(msg + "失败");
                     }
                 }
             });
